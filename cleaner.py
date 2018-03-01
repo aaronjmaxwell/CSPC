@@ -5,8 +5,9 @@ import datetime as dt
 def cleaner(file_):
     """Extract-Transform-Load the Tweet data."""
     days = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31]
-    # grab the data
+    # Grab the file, only use original tweets, and drop the Entity column.
     df = pd.read_csv(file_)
+    df = df[df.O == True]
     # reset to 24 clock
     idx = df[df.pm == 'PM'].index
     df.loc[idx, 'h'] += 12
@@ -24,7 +25,7 @@ def cleaner(file_):
     df['Date'] = pd.to_datetime(dict(year = df['Y'] + 2000, month = df['M'], day = df['D'], hour
         = df['h'], minute = df['m'], second = df['s']))
     df.set_index('Date', inplace = True)
-    df.drop(['Y', 'M', 'D', 'h', 'm', 's', 'pm'], axis = 1, inplace = True)
+    df.drop(['E', 'O', 'Y', 'M', 'D', 'h', 'm', 's', 'pm'], axis = 1, inplace = True)
     return df
 
 if __name__ == "__main__":
