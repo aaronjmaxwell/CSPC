@@ -51,7 +51,7 @@ def Tweets(df, kwarg):
     ax[2].set_xlabel('Days', color = 'black')
     ax[0].set_title('#CSPC2017', color = 'black')
     fig.patch.set_alpha(0.0)
-    plt.savefig('images/Tweets.png', dpi = 300)
+    plt.savefig('images/Hashtag_Activity.png', dpi = 300)
     plt.clf()
     plt.close()
 
@@ -95,7 +95,7 @@ def Impressions(df, kwarg):
         t.set_fontsize(9)
     
     fig.patch.set_alpha(0.0)
-    plt.savefig('images/Impressions.png', dpi = 300)
+    plt.savefig('images/Hashtag_Impressions.png', dpi = 300)
     plt.clf()
     plt.close()
 
@@ -131,7 +131,7 @@ def WeeklyTweets(df, kwarg):
 
     ax[0].set_title('#CSPC2017', color = 'black')
     fig.patch.set_alpha(0.0)
-    plt.savefig('images/Tweets_Weekly.png', dpi = 300)
+    plt.savefig('images/Hashtag_Weekly.png', dpi = 300)
     plt.clf()
     plt.close()
 

@@ -60,7 +60,7 @@ def Engagements(df, kwarg):
     ax.legend()
     ax.patch.set_alpha(0)
     fig.patch.set_alpha(0)
-    plt.savefig('images/Activity.png', dpi = 300)
+    plt.savefig('images/Feed_Activity.png', dpi = 300)
     plt.clf()
     plt.close()
 
@@ -102,7 +102,7 @@ def Clicks(df, kwarg):
     ax.legend()
     ax.patch.set_alpha(0)
     fig.patch.set_alpha(0)
-    plt.savefig('images/Click.png', dpi = 300)
+    plt.savefig('images/Feed_Clicks.png', dpi = 300)
     plt.clf()
     plt.close()
 
@@ -146,7 +146,7 @@ def Impressions(df, kwarg):
     ax[0].patch.set_alpha(0)
     ax[1].patch.set_alpha(0)
     fig.patch.set_alpha(0)
-    plt.savefig('images/FeedImpressions.png', dpi = 300)
+    plt.savefig('images/Feed_Impressions.png', dpi = 300)
     plt.clf()
     plt.close()
 
@@ -182,7 +182,7 @@ def WeeklyTweets(df, kwarg):
 
     ax[0].set_title('#CSPC2017', color = 'black')
     fig.patch.set_alpha(0.0)
-    plt.savefig('images/Tweets_Weekly.png', dpi = 300)
+    plt.savefig('images/Feed_Weekly.png', dpi = 300)
     plt.clf()
     plt.close()
 
