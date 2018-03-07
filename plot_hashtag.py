@@ -49,7 +49,7 @@ def Tweets(df, kwarg):
         df.index[int(t)].date() if ((t >= 0) and (t <= (len(df) - 1))) else '' for t in xt]]
     ax[2].set_xticklabels(xl, fontsize = 9)
     ax[2].set_xlabel('Days', color = 'black')
-    ax[0].set_title('#CSPC2017', color = 'black')
+    ax[0].set_title('#CSPC2018', color = 'black')
     fig.patch.set_alpha(0.0)
     plt.savefig('images/Hashtag_Activity.png', dpi = 300)
     plt.clf()

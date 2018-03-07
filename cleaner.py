@@ -5,27 +5,35 @@ import datetime as dt
 def cleaner(file_):
     """Extract-Transform-Load the Tweet data."""
     days = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31]
+    year = np.cumsum(days)
     # Grab the file, only use original tweets, and drop the Entity column.
     df = pd.read_csv(file_)
     df = df[df.O == True]
     # reset to 24 clock
-    idx = df[df.pm == 'PM'].index
+    idx = (df.h == 12) & (df.pm == 'AM')
+    df.loc[idx, 'h'] = 0
+    idx = (df.pm == 'PM')
     df.loc[idx, 'h'] += 12
-    # move GMT to EST
-    df.h -= 4
+    # move GMT to EST - Need daylight savings UTC in tuple (month, day, hour)
+    spring, fall = (3, 11, 8), (11, 4, 7)
+    df['days'] = df.M.map(lambda x: year[(x-1)]) + df.D + df.h / 24.
+    idx = ((df.days >= (year[spring[0]-2] + spring[1] + spring[2] / 24))
+        & (df.days <= (year[fall[0]-2] + fall[1] + fall[2] / 24.)))
+    df.loc[idx, 'h'] -= 4
+    df.loc[~idx, 'h'] -= 5
     idx = df[df.h < 0].index
     df.loc[idx, 'h'] += 24
     df.loc[idx, 'D'] -= 1
     # fix if twts move to previous month
-    for m in range(2,12,1):
+    for m in range(1, 12, 1):
         idx = df[(df.D == 0) & (df.M == m)].index
-        df.loc[idx, 'D'] = days[m - 1]
+        df.loc[idx, 'D'] = days[m - 2]
         df.loc[idx, 'M'] = int(m - 1)
     # we do not need the hourly data anymore
     df['Date'] = pd.to_datetime(dict(year = df['Y'] + 2000, month = df['M'], day = df['D'], hour
         = df['h'], minute = df['m'], second = df['s']))
     df.set_index('Date', inplace = True)
-    df.drop(['E', 'O', 'Y', 'M', 'D', 'h', 'm', 's', 'pm'], axis = 1, inplace = True)
+    df.drop(['E', 'O', 'Y', 'M', 'D', 'h', 'm', 's', 'pm', 'days'], axis = 1, inplace = True)
     return df
 
 if __name__ == "__main__":
