@@ -1,3 +1,4 @@
+import configparser
 import numpy as np
 import pandas as pd
 import datetime as dt
@@ -8,6 +9,9 @@ from scipy import interpolate
 from scipy import stats
 
 from cleaner import cleaner
+
+cf = configparser.ConfigParser()
+cf.read('cspc.ini')
 
 dater = {1: 'Jan', 2: 'Feb', 3: 'Mar', 4: 'Apr', 5: 'May', 6: 'Jun', 7: 'Jul', 8: 'Aug', 9: 'Sep',
     10: 'Oct', 11: 'Nov', 12: 'Dec'}
@@ -28,9 +32,9 @@ def PlotTweets(cax, x, y, kwarg, label, interpolate=True):
     cax.set_ylabel(label, color = 'black')
     cax.patch.set_alpha(0.0)
     for t in cax.get_xticklabels():
-        t.set_fontsize(9)
+        t.set_fontsize(8)
     for t in cax.get_yticklabels():
-        t.set_fontsize(9)
+        t.set_fontsize(8)
 
 def Tweets(df, kwarg):
     fig, ax = plt.subplots(3, 1, figsize = (8, 5), sharex = True)
@@ -42,14 +46,14 @@ def Tweets(df, kwarg):
 # interpolate retweets
     kwarg['color'] = 'blue'
     PlotTweets(ax[2], df.Days.values, df.RT.values, kwarg, 'RT', interpolate = True)
-    #ax[2].text(227, 220, '#CSPC2017', fontsize = 6, rotation = 90)
+    #ax[2].text(227, 220, '#' + cf['INFO']['hashtag'], fontsize = 6, rotation = 90)
 # finish
     xt = ax[2].get_xticks()
     xl = [t if isinstance(t, str) else dater[t.month] + ' ' + str(t.day) for t in [
         df.index[int(t)].date() if ((t >= 0) and (t <= (len(df) - 1))) else '' for t in xt]]
-    ax[2].set_xticklabels(xl, fontsize = 9)
+    ax[2].set_xticklabels(xl, fontsize = 8)
     ax[2].set_xlabel('Days', color = 'black')
-    ax[0].set_title('#CSPC2018', color = 'black')
+    ax[0].set_title('#' + cf['INFO']['hashtag'], color = 'black')
     fig.patch.set_alpha(0.0)
     plt.savefig('images/Hashtag_Activity.png', dpi = 300)
     plt.clf()
@@ -80,7 +84,7 @@ def Impressions(df, kwarg):
     ax[0].set_xticklabels(xl)
     ax[0].set_xticklabels(xl)
     ax[0].set_xlabel('Days', color = 'black')
-    ax[0].set_title('#CSPC2017', color = 'black')
+    ax[0].set_title('#' + cf['INFO']['hashtag'], color = 'black')
 
     ax[1].fill_between(X, Z * 100., 0, **kw)
     ax[1].set_xlim(0, ylim[1])
@@ -90,9 +94,9 @@ def Impressions(df, kwarg):
     ax[1].patch.set_alpha(0.0)
     ax[1].set_position((0.125, 0.1, 0.775, 0.35))
     for t in ax[1].get_xticklabels():
-        t.set_fontsize(9)
+        t.set_fontsize(8)
     for t in ax[1].get_yticklabels():
-        t.set_fontsize(9)
+        t.set_fontsize(8)
     
     fig.patch.set_alpha(0.0)
     plt.savefig('images/Hashtag_Impressions.png', dpi = 300)
@@ -116,11 +120,11 @@ def WeeklyTweets(df, kwarg):
         ax[i].patch.set_alpha(0.0)
         ax[i].set_xticks(x)
         for t in ax[i].get_xticklabels():
-            t.set_fontsize(9)
+            t.set_fontsize(8)
         for t in ax[i].get_yticklabels():
-            t.set_fontsize(11)
+            t.set_fontsize(8)
     
-    ax[2].text(32.25, 600, '#CSPC2017', fontsize = 6, rotation = 90)
+    #ax[2].text(32.25, 600, '#' + cf['INFO']['hashtag'], fontsize = 6, rotation = 90)
 
     ax[2].xaxis.set_tick_params(pad = -1)
     ax[2].set_xticklabels([str(d.date())[5:] for d in df.index], fontsize = 6, rotation = 40)
@@ -129,7 +133,7 @@ def WeeklyTweets(df, kwarg):
         for major in ax[i].xaxis.get_majorticklines():
             major.set_visible(False)
 
-    ax[0].set_title('#CSPC2017', color = 'black')
+    ax[0].set_title('#' + cf['INFO']['hashtag'], color = 'black')
     fig.patch.set_alpha(0.0)
     plt.savefig('images/Hashtag_Weekly.png', dpi = 300)
     plt.clf()
