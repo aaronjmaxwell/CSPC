@@ -44,7 +44,7 @@ def Engagements(df, kwarg):
     PlotTweets(ax, df.Days.values, df.Engagements.values, kwarg, 'Engagements', interpolate = True)
     
     kwarg['color'] = 'goldenrod'
-    PlotTweets(ax, df.Days.values, df.Engagements.values, kwarg, 'Details', interpolate = True)
+    PlotTweets(ax, df.Days.values, df.Details.values, kwarg, 'Details', interpolate = True)
     
     #ax[2].text(227, 220, '#CSPC2017', fontsize = 6, rotation = 90)
     xt = ax.get_xticks()
@@ -83,10 +83,10 @@ def Clicks(df, kwarg):
     PlotTweets(ax, df.Days.values, df.Hashtag.values, kwarg, 'Hashtag', interpolate = True)
     
     kwarg['color'] = 'goldenrod'
-    PlotTweets(ax, df.Days.values, df.Hashtag.values, kwarg, 'Follows', interpolate = True)
+    PlotTweets(ax, df.Days.values, df.Follows.values, kwarg, 'Follows', interpolate = True)
     
     kwarg['color'] = 'violet'
-    PlotTweets(ax, df.Days.values, df.Hashtag.values, kwarg, 'Media', interpolate = True)
+    PlotTweets(ax, df.Days.values, df.Media.values, kwarg, 'Media', interpolate = True)
     
     #ax[2].text(227, 220, '#CSPC2017', fontsize = 6, rotation = 90)
     xt = ax.get_xticks()
