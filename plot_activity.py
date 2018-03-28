@@ -9,12 +9,11 @@ from scipy import interpolate
 from scipy import stats
 
 from cleaner import cleaner
+dater = {1: 'Jan', 2: 'Feb', 3: 'Mar', 4: 'Apr', 5: 'May', 6: 'Jun', 7: 'Jul', 8: 'Aug', 9: 'Sep',
+    10: 'Oct', 11: 'Nov', 12: 'Dec'}
 
 cf = configparser.ConfigParser()
 cf.read('cspc.ini')
-
-dater = {1: 'Jan', 2: 'Feb', 3: 'Mar', 4: 'Apr', 5: 'May', 6: 'Jun', 7: 'Jul', 8: 'Aug', 9: 'Sep',
-    10: 'Oct', 11: 'Nov', 12: 'Dec'}
 
 kwarg = dict(color = '', linewidths = 0.75, s = 10, facecolor = 'none')
 #kwarg = dict(color = '', lw = 0.5, ls = ':', marker = 'o', ms = 2, mew = 0.75, mfc = 'none')
@@ -29,22 +28,15 @@ def PlotTweets(cax, x, y, kwarg, label, interpolate=True):
     else:
         cax.plot(x, y, **kwarg)
 
-def Engagements(df, kwarg):
+def Activity(df, kwarg):
     fig, ax = plt.subplots(figsize = (8, 5))
-    kwarg['color'] = 'black'
-    PlotTweets(ax, df.Days.values, df.Tweet.values, kwarg, 'Tweets', interpolate = True)
-    
-    kwarg['color'] = 'red'
-    PlotTweets(ax, df.Days.values, df.Likes.values, kwarg, r'$\heartsuit$', interpolate = True)
-    
-    kwarg['color'] = 'blue'
-    PlotTweets(ax, df.Days.values, df.Retweets.values, kwarg, 'Retweets', interpolate = True)
-    
-    kwarg['color'] = 'green'
-    PlotTweets(ax, df.Days.values, df.Engagements.values, kwarg, 'Engagements', interpolate = True)
-    
-    kwarg['color'] = 'goldenrod'
-    PlotTweets(ax, df.Days.values, df.Details.values, kwarg, 'Details', interpolate = True)
+    colors = ['black', 'red', 'blue', 'green']
+    keys = ['Tweet', 'Likes', 'Retweets', 'Details']
+    labels = ['Tweets', r'$\heartsuit$', 'Retweets', 'Details']
+
+    for color, key, label in zip(colors, keys, labels):
+        kwarg['color'] = color
+        PlotTweets(ax, df.Days.values, df[key].values, kwarg, label, interpolate = True)
     
     #ax[2].text(227, 220, '#CSPC2017', fontsize = 6, rotation = 90)
     xt = ax.get_xticks()
@@ -68,25 +60,63 @@ def Engagements(df, kwarg):
     plt.clf()
     plt.close()
 
+def Engagements(df):
+    C = ['Likes', 'Retweets', 'Details', 'URL', 'Media', 'Profile', 'Other']
+    c = ['red', 'blue', 'green', 'goldenrod', 'cyan', 'magenta', 'black']
+    df['Other'] = df[['Replies', 'Follows', 'Hashtag']].sum(axis = 1)
+
+    fig, ax = plt.subplots(2, figsize = (8, 5))
+    b, B = np.zeros(len(df)), np.zeros(len(df))
+    
+    kw = dict(width = 0.8, align = 'edge', lw = 0)
+
+    for i in range(len(C)):
+        y = df[C[i]].values
+        Y = y / df.Engagements.values
+        ax[0].bar(df.Days.values, y, bottom = b, color = c[i], label = C[i], **kw)
+        ax[1].bar(df.Days.values, Y, bottom = B, color = c[i], label = C[i], **kw)
+
+        b += y
+        B += Y
+    
+    ax[1].set_ylim(0, 1)
+    xt = ax[0].get_xticks()
+    xl = [t if isinstance(t, str) else dater[t.month] + ' ' + str(t.day) for t in [
+        df.index[int(t)].date() if ((t >= 0) and (t <= (len(df) - 1))) else '' for t in xt]]
+    
+    ax[0].tick_params(axis = 'x', which = 'both', bottom = 'off', labelbottom = 'off')
+    ax[1].set_xticklabels(xl)
+    ax[1].set_yticks([0, 0.2, 0.4, 0.6, 0.8, 1.0])
+    ax[1].set_yticklabels(['0', '20', '40', '60', '80', ''])
+    ax[1].set_xlabel('Days', color = 'black')
+    ax[0].set_title('@sciencepolicy', color = 'black')
+    ax[0].set_ylabel('Engagements', color = 'black')
+    ax[1].set_ylabel('Engagements (%)', color = 'black')
+
+    ax[0].legend(ncol = 2, fontsize = 8)
+    for i in range(2):
+        for t in ax[i].get_xticklabels():
+            t.set_fontsize(8)
+        for t in ax[i].get_yticklabels():
+            t.set_fontsize(8)
+        ax[i].patch.set_alpha(0)
+
+    ax[0].set_position((0.1, 0.45, 0.85, 0.5))
+    ax[1].set_position((0.1, 0.1, 0.85, 0.345))
+    
+    fig.patch.set_alpha(0)
+    plt.savefig('images/Feed_Engagements.png', dpi = 300)
+    plt.clf()
+    plt.close()
+
+
 def Clicks(df, kwarg):
     fig, ax = plt.subplots(figsize = (8, 5))
-    kwarg['color'] = 'black'
-    PlotTweets(ax, df.Days.values, df.Tweet.values, kwarg, 'Tweets', interpolate = True)
-    
-    kwarg['color'] = 'red'
-    PlotTweets(ax, df.Days.values, df.Profile.values, kwarg, 'Profile', interpolate = True)
-    
-    kwarg['color'] = 'blue'
-    PlotTweets(ax, df.Days.values, df.URL.values, kwarg, 'URL', interpolate = True)
-    
-    kwarg['color'] = 'green'
-    PlotTweets(ax, df.Days.values, df.Hashtag.values, kwarg, 'Hashtag', interpolate = True)
-    
-    kwarg['color'] = 'goldenrod'
-    PlotTweets(ax, df.Days.values, df.Follows.values, kwarg, 'Follows', interpolate = True)
-    
-    kwarg['color'] = 'violet'
-    PlotTweets(ax, df.Days.values, df.Media.values, kwarg, 'Media', interpolate = True)
+    colors = ['black', 'red', 'blue', 'green', 'goldenrod']
+    keys = ['Tweet', 'Profile', 'URL', 'Hashtag', 'Media']
+    for color, key in zip(colors, keys):
+        kwarg['color'] = color
+        PlotTweets(ax, df.Days.values, df[key].values, kwarg, key, interpolate = True)
     
     #ax[2].text(227, 220, '#CSPC2017', fontsize = 6, rotation = 90)
     xt = ax.get_xticks()
@@ -194,22 +224,25 @@ def WeeklyTweets(df, kwarg):
     plt.clf()
     plt.close()
 
-df = pd.read_csv('activity.csv')
-df['Time'] = pd.to_datetime(df['Time'])
-df.set_index('Time', inplace = True, drop = True)
-df['Tweet'] = 1
-# Sum all occurrences per day, replacing non-entry days with NaN which we fill with 0.0
-df = df.groupby(pd.Grouper(freq = 'D')).sum()
-df['Rate'] = df['Engagements'] / df['Impressions'] * 100.
-df.fillna(0.0, inplace = True)
-df['Days'] = (df.index - df.index[0]).days
-#df = df.loc['2017-03-20':'2017-10-29'].append(df.loc['2017-11-06':])
-# Tweets
-Engagements(df, kwarg)
-Clicks(df, kwarg)
-Impressions(df, kwarg)
-# Grouping into weeks
-#df.drop(['Days'], axis = 1, inplace = True)
-#df = df.groupby(pd.Grouper(freq = '7D')).sum()
-#kwarg = dict(facecolor = '', edgecolor = 'cyan', linewidth = 1, align = 'edge', alpha = 1)
-#WeeklyTweets(df, kwarg)
+if __name__ == "__main__":
+    df = pd.read_csv('activity.csv')
+    df['Time'] = pd.to_datetime(df['Time'])
+    df.set_index('Time', inplace = True, drop = True)
+    df['Tweet'] = 1
+    # Sum all occurrences per day, replacing non-entry days with NaN which we fill with 0.0
+    df = df.groupby(pd.Grouper(freq = 'D')).sum()
+    df['Rate'] = df['Engagements'] / df['Impressions'] * 100.
+    df.fillna(0.0, inplace = True)
+    df['Days'] = (df.index - df.index[0]).days
+    #df = df.loc['2017-03-20':'2017-10-29'].append(df.loc['2017-11-06':])
+    
+    Activity(df, kwarg)
+    Clicks(df, kwarg)
+    Impressions(df, kwarg)
+    Engagements(df)
+    
+    # Grouping into weeks
+    #df.drop(['Days'], axis = 1, inplace = True)
+    #df = df.groupby(pd.Grouper(freq = '7D')).sum()
+    #kwarg = dict(facecolor = '', edgecolor = 'cyan', linewidth = 1, align = 'edge', alpha = 1)
+    #WeeklyTweets(df, kwarg)
