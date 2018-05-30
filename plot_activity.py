@@ -37,12 +37,12 @@ def Activity(df, kwarg):
     for color, key, label in zip(colors, keys, labels):
         kwarg['color'] = color
         PlotTweets(ax, df.Days.values, df[key].values, kwarg, label, interpolate = True)
-    
+
     #ax[2].text(227, 220, '#CSPC2017', fontsize = 6, rotation = 90)
     xt = ax.get_xticks()
     xl = [t if isinstance(t, str) else dater[t.month] + ' ' + str(t.day) for t in [
         df.index[int(t)].date() if ((t >= 0) and (t <= (len(df) - 1))) else '' for t in xt]]
-    
+
     ax.set_xticklabels(xl)
     ax.set_xlabel('Days', color = 'black')
     ax.set_title('@sciencepolicy', color = 'black')
@@ -52,7 +52,7 @@ def Activity(df, kwarg):
         t.set_fontsize(8)
     for t in ax.get_yticklabels():
         t.set_fontsize(8)
-    
+
     ax.legend()
     ax.patch.set_alpha(0)
     fig.patch.set_alpha(0)
@@ -67,7 +67,7 @@ def Engagements(df):
 
     fig, ax = plt.subplots(2, figsize = (8, 5))
     b, B = np.zeros(len(df)), np.zeros(len(df))
-    
+
     kw = dict(width = 0.8, align = 'edge', lw = 0)
 
     for i in range(len(C)):
@@ -78,12 +78,12 @@ def Engagements(df):
 
         b += y
         B += Y
-    
+
     ax[1].set_ylim(0, 1)
     xt = ax[0].get_xticks()
     xl = [t if isinstance(t, str) else dater[t.month] + ' ' + str(t.day) for t in [
         df.index[int(t)].date() if ((t >= 0) and (t <= (len(df) - 1))) else '' for t in xt]]
-    
+
     ax[0].tick_params(axis = 'x', which = 'both', bottom = 'off', labelbottom = 'off')
     ax[1].set_xticklabels(xl)
     ax[1].set_yticks([0, 0.2, 0.4, 0.6, 0.8, 1.0])
@@ -103,7 +103,7 @@ def Engagements(df):
 
     ax[0].set_position((0.1, 0.45, 0.85, 0.5))
     ax[1].set_position((0.1, 0.1, 0.85, 0.345))
-    
+
     fig.patch.set_alpha(0)
     plt.savefig('images/Feed_Engagements.png', dpi = 300)
     plt.clf()
@@ -117,12 +117,12 @@ def Clicks(df, kwarg):
     for color, key in zip(colors, keys):
         kwarg['color'] = color
         PlotTweets(ax, df.Days.values, df[key].values, kwarg, key, interpolate = True)
-    
+
     #ax[2].text(227, 220, '#CSPC2017', fontsize = 6, rotation = 90)
     xt = ax.get_xticks()
     xl = [t if isinstance(t, str) else dater[t.month] + ' ' + str(t.day) for t in [
         df.index[int(t)].date() if ((t >= 0) and (t <= (len(df) - 1))) else '' for t in xt]]
-    
+
     ax.set_xticklabels(xl)
     ax.set_xlabel('Days', color = 'black')
     ax.set_title('@sciencepolicy', color = 'black')
@@ -132,7 +132,7 @@ def Clicks(df, kwarg):
         t.set_fontsize(8)
     for t in ax.get_yticklabels():
         t.set_fontsize(8)
-    
+
     ax.legend()
     ax.patch.set_alpha(0)
     fig.patch.set_alpha(0)
@@ -144,7 +144,7 @@ def Impressions(df, kwarg):
     """Plot impression rate."""
     fig, ax = plt.subplots(2, 1, figsize = (8, 5))
     kwarg['color'] = 'black'
-    
+
     PlotTweets(ax[0], df.Days, df.Rate, kwarg, 'Impression Rate', interpolate = True)
     #ax[0].text(227, 4, '#CSPC2017', fontsize = 6, rotation = 90)
     ax[0].grid(color = 'black', alpha = 0.25)
@@ -180,7 +180,7 @@ def Impressions(df, kwarg):
         t.set_fontsize(8)
     for t in ax[1].get_yticklabels():
         t.set_fontsize(8)
-    
+
     ax[0].patch.set_alpha(0)
     ax[1].patch.set_alpha(0)
     fig.patch.set_alpha(0)
@@ -208,12 +208,12 @@ def WeeklyTweets(df, kwarg):
             t.set_fontsize(8)
         for t in ax[i].get_yticklabels():
             t.set_fontsize(8)
-    
+
     #ax[2].text(32.25, 600, '#CSPC2017', fontsize = 6, rotation = 90)
 
     ax[2].xaxis.set_tick_params(pad = -1)
     ax[2].set_xticklabels([str(d.date())[5:] for d in df.index], fontsize = 6, rotation = 40)
-    
+
     for i in range(3):
         for major in ax[i].xaxis.get_majorticklines():
             major.set_visible(False)
@@ -225,7 +225,7 @@ def WeeklyTweets(df, kwarg):
     plt.close()
 
 if __name__ == "__main__":
-    df = pd.read_csv('activity.csv')
+    df = pd.read_csv('data/activity.csv')
     df['Time'] = pd.to_datetime(df['Time'])
     df.set_index('Time', inplace = True, drop = True)
     df['Tweet'] = 1
@@ -235,12 +235,12 @@ if __name__ == "__main__":
     df.fillna(0.0, inplace = True)
     df['Days'] = (df.index - df.index[0]).days
     #df = df.loc['2017-03-20':'2017-10-29'].append(df.loc['2017-11-06':])
-    
+
     Activity(df, kwarg)
     Clicks(df, kwarg)
     Impressions(df, kwarg)
     Engagements(df)
-    
+
     # Grouping into weeks
     #df.drop(['Days'], axis = 1, inplace = True)
     #df = df.groupby(pd.Grouper(freq = '7D')).sum()

@@ -63,7 +63,7 @@ def Impressions(df, kwarg):
     """Plot impression rate."""
     fig, ax = plt.subplots(2, 1, figsize = (8, 5))
     kwarg['color'] = 'black'
-    
+
     PlotTweets(ax[0], df.Days, df.Rate, kwarg, 'Impressions\n(' + r'$\heartsuit$' + ' + RT) / TWT',
         interpolate = True)
     ax[0].text(227, 4, '#CSPC2017', fontsize = 6, rotation = 90)
@@ -97,7 +97,7 @@ def Impressions(df, kwarg):
         t.set_fontsize(8)
     for t in ax[1].get_yticklabels():
         t.set_fontsize(8)
-    
+
     fig.patch.set_alpha(0.0)
     plt.savefig('images/Hashtag_Impressions.png', dpi = 300)
     plt.clf()
@@ -123,12 +123,12 @@ def WeeklyTweets(df, kwarg):
             t.set_fontsize(8)
         for t in ax[i].get_yticklabels():
             t.set_fontsize(8)
-    
+
     #ax[2].text(32.25, 600, '#' + cf['INFO']['hashtag'], fontsize = 6, rotation = 90)
 
     ax[2].xaxis.set_tick_params(pad = -1)
     ax[2].set_xticklabels([str(d.date())[5:] for d in df.index], fontsize = 6, rotation = 40)
-    
+
     for i in range(3):
         for major in ax[i].xaxis.get_majorticklines():
             major.set_visible(False)
@@ -139,23 +139,24 @@ def WeeklyTweets(df, kwarg):
     plt.clf()
     plt.close()
 
-df = cleaner('hashtag.csv')
-df['TWT'] = 1
-# Sum all occurrences per day, replacing non-entry days with NaN which we fill with 0.0
-df = df.groupby(pd.Grouper(freq = 'D')).sum()
-df.fillna(0.0, inplace = True)
-# Only way to measure impact, and a proxy of Twitters Impression Rate
-df['Imp'] = df.F + df.RT
-df['Rate'] = df.Imp / df.TWT
-df.fillna(0.0, inplace = True)
-df['Days'] = (df.index - df.index[0]).days
-#df = df.loc['2017-03-20':'2017-10-29'].append(df.loc['2017-11-06':])
-# Tweets
-Tweets(df, kwarg)
-# Impression Rate
-Impressions(df, kwarg)
-# Grouping into weeks
-df.drop(['Days'], axis = 1, inplace = True)
-df = df.groupby(pd.Grouper(freq = '7D')).sum()
-kwarg = dict(facecolor = '', edgecolor = 'cyan', linewidth = 1, align = 'edge', alpha = 1)
-WeeklyTweets(df, kwarg)
+if __name__ = "__main__":
+    df = cleaner('data/hashtag.csv')
+    df['TWT'] = 1
+    # Sum all occurrences per day, replacing non-entry days with NaN which we fill with 0.0
+    df = df.groupby(pd.Grouper(freq = 'D')).sum()
+    df.fillna(0.0, inplace = True)
+    # Only way to measure impact, and a proxy of Twitters Impression Rate
+    df['Imp'] = df.F + df.RT
+    df['Rate'] = df.Imp / df.TWT
+    df.fillna(0.0, inplace = True)
+    df['Days'] = (df.index - df.index[0]).days
+    #df = df.loc['2017-03-20':'2017-10-29'].append(df.loc['2017-11-06':])
+    # Tweets
+    Tweets(df, kwarg)
+    # Impression Rate
+    Impressions(df, kwarg)
+    # Grouping into weeks
+    df.drop(['Days'], axis = 1, inplace = True)
+    df = df.groupby(pd.Grouper(freq = '7D')).sum()
+    kwarg = dict(facecolor = '', edgecolor = 'cyan', linewidth = 1, align = 'edge', alpha = 1)
+    WeeklyTweets(df, kwarg)
