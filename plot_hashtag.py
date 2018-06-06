@@ -139,7 +139,7 @@ def WeeklyTweets(df, kwarg):
     plt.clf()
     plt.close()
 
-if __name__ = "__main__":
+if __name__ == "__main__":
     df = cleaner('data/hashtag.csv')
     df['TWT'] = 1
     # Sum all occurrences per day, replacing non-entry days with NaN which we fill with 0.0
