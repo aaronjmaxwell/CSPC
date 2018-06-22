@@ -1,0 +1,14 @@
+panel = dict(
+    NRCan = ["Canada's Climate Change Adaptation Platform", "From AI to Policy (Map-)Making"],
+    CollegeCan = "Incorporating Indigenous Ways of Knowing",
+    SSHRC_CRSH = "Informing Policy by Leveraging Knowledge",
+    INFC_eng = "Informing Policy by Leveraging Knowledge",
+    Sofia_Barrows = "Breaking the Habit",
+    allouttalemons = "Breaking the Habit",
+    OntScienceCtr = "Breaking the Habit",
+    Eleanor_Fast = "The Dementia Challenge",
+    CAHS_ACSS = "The Dementia Challenge",
+    Scienceadvice = "Failure to Thrive",
+    emmeslin = "Failure to Thrive",
+    BMSchmidt = "Canada 2067",
+    LetsTalkScience = "Canada 2067")

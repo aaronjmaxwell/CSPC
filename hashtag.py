@@ -12,7 +12,7 @@ api = tweepy.API(auth)
 tweet = tweepy.Cursor(api.search, q = cf['INFO']['hashtag'], since = cf['DATE']['since'], until
     = cf['DATE']['until']).items()
 out = open(cf['INFO']['file'], "w")
-for i,t in enumerate(tweet):
+for i, t in enumerate(tweet):
     if ((i + 1) % 1000 == 0):
         for j in range(600):
             if (j % 60 == 0):

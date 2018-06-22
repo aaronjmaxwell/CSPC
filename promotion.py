@@ -13,12 +13,14 @@ tweet = tweepy.Cursor(api.search, q = cf['INFO']['hashtag'], since = cf['DATE'][
     = cf['DATE']['until']).items()
 out = open(cf['INFO']['file_'], "w")
 for i, t in enumerate(tweet):
-    if ((i + 1) % 1000 == 0):
-        for j in range(600):
-            if (j % 60 == 0):
-                print(j)
-            time.sleep(1)
-    if ((t.author.screen_name == 'sciencepolicy') & (len(t.entities['user_mentions']) > 0)):
+    #if ((i + 1) % 1000 == 0):
+    #    for j in range(600):
+    #        if (j % 60 == 0):
+    #            print(j)
+    #        time.sleep(1)
+    if ((t.author.screen_name == 'sciencepolicy') & (len(t.entities['user_mentions']) > 0) &
+        (t.text.find('RT @') < 0)):
+        print(t.text)
         string = t.created_at
         string = string.strftime('%x,%r')
         string = string + ',' + str(t.favorite_count) + ',' + str(t.retweet_count)

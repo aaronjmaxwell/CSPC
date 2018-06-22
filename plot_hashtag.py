@@ -16,7 +16,7 @@ cf.read('cspc.ini')
 dater = {1: 'Jan', 2: 'Feb', 3: 'Mar', 4: 'Apr', 5: 'May', 6: 'Jun', 7: 'Jul', 8: 'Aug', 9: 'Sep',
     10: 'Oct', 11: 'Nov', 12: 'Dec'}
 
-kwarg = dict(color = '', linewidths = 0.75, s = 10, facecolor = 'none')
+kwarg = dict(color = '', linewidths = 0, s = 5, edgecolor = 'none')
 #kwarg = dict(color = '', lw = 0.5, ls = ':', marker = 'o', ms = 2, mew = 0.75, mfc = 'none')
 
 def PlotTweets(cax, x, y, kwarg, label, interpolate=True):
@@ -30,6 +30,7 @@ def PlotTweets(cax, x, y, kwarg, label, interpolate=True):
         cax.plot(x, y, **kwarg)
 
     cax.set_ylabel(label, color = 'black')
+    cax.set_ylim(0, max(cax.get_ylim()))
     cax.patch.set_alpha(0.0)
     for t in cax.get_xticklabels():
         t.set_fontsize(8)
@@ -77,7 +78,7 @@ def Impressions(df, kwarg):
     kw = dict(edgecolor = 'none', facecolor = 'green')
     ax[0].fill_between(Z + xlim[0], X, 0, alpha = 0.6, **kw)
     ax[0].set_xlim(xlim)
-    ax[0].set_ylim(0, np.max(ylim))
+    ax[0].set_ylim(0, 15)#np.max(ylim))
     xt = ax[0].get_xticks()
     xl = [t if isinstance(t, str) else dater[t.month] + ' ' + str(t.day) for t in [
         df.index[int(t)].date() if ((t >= 0) and (t <= (len(df) - 1))) else '' for t in xt]]
@@ -87,7 +88,7 @@ def Impressions(df, kwarg):
     ax[0].set_title('#' + cf['INFO']['hashtag'], color = 'black')
 
     ax[1].fill_between(X, Z * 100., 0, **kw)
-    ax[1].set_xlim(0, ylim[1])
+    ax[1].set_xlim(0, 15)#ylim[1])
     ax[1].set_ylim((0, 105))
     ax[1].set_xlabel('Impressions', color = 'k')
     ax[1].set_ylabel('Peak Frequency (%)', color = 'k')
