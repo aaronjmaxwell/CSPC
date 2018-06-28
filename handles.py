@@ -42,4 +42,18 @@ panel = dict(
     CIHR_IRSC = "Granting Agencies and Participatory Science in Canada",
     NSERC_CRSNG = "Granting Agencies and Participatory Science in Canada",
     Joe_S_Sparling = "Where the Rubber Meets the Road",
-    CAPSACSP = "Where the Rubber Meets the Road")
+    CAPSACSP = "Where the Rubber Meets the Road",
+    # Conor
+    m_m_campbell = "Science Based Policies to Address new Agri-Food Realities",
+    uofg = "Science Based Policies to Address new Agri-Food Realities",
+    SilkeNebel = "Connecting Science with Policy in Canada",
+    Science2Action = "Connecting Science with Policy in Canada",
+    WillemseLA = "Fake News, Fake Therapies",
+    StemCellNetwork = "Fake News, Fake Therapies",
+    # Rhiannon
+    AlyssaDaku = "Should science-based Organizations Define their Risk Tolerances",
+    CFIA_Canada = "Should science-based Organizations Define their Risk Tolerances",
+    #BCHealth = "Putting Our Minds Together",
+    itsinyoutogive = "From Crisis to Confidence",
+    DrDanaDevine = "From Crisis to Confidence"
+    )
