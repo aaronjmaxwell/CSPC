@@ -1,21 +1,25 @@
 panel = dict(
+    # Multiples
+    SSHRC_CRSH = ["Informing Policy by Leveraging Knowledge", # Rebecca
+                "Granting Agencies and Participatory Science in Canada"], # Greg
+    NSERC_CRSNG = ["Shaping Science Policy to Improve Equity, Diversity and Inclusion", # Jennifer
+        "Granting Agencies and Participatory Science in Canada"], # Greg
+    NRCan = ["Canada's Climate Change Adaptation Platform",
+        "From AI to Policy (Map-)Making"], # Aaron
+    OntScienceCtr = ["Breaking the Habit", # Aaron
+                    "The Status of Science Literacy in Canada"], # Greg
+    Sofia_Barrows = ["Breaking the Habit", # Aaron
+        "Equity, Diversity and Inclusion in Science"],
     # Rebecca
     CollegeCan = "Incorporating Indigenous Ways of Knowing",
-    SSHRC_CRSH = ["Informing Policy by Leveraging Knowledge",
-                "Granting Agencies and Participatory Science in Canada"],
     INFC_eng = "Informing Policy by Leveraging Knowledge",
     Eleanor_Fast = "The Dementia Challenge",
     CAHS_ACSS = "The Dementia Challenge",
     #  Aaron
-    NRCan = ["Canada's Climate Change Adaptation Platform",
-        "From AI to Policy (Map-)Making"],
-    Sofia_Barrows = ["Breaking the Habit",
-        "Equity, Diversity and Inclusion in Science"],
     allouttalemons = "Breaking the Habit",
-    OntScienceCtr = ["Breaking the Habit",
-                    "The Status of Science Literacy in Canada"],
     Scienceadvice = "Failure to Thrive",
     emmeslin = "Failure to Thrive",
+    OCEinnovation = "Commercializing Innovation in Canada",
     BMSchmidt = "Canada 2067",
     LetsTalkScience = "Canada 2067",
     # Cat
@@ -32,6 +36,10 @@ panel = dict(
     RySciDean = "Equity, Diversity and Inclusion in Science",
     RyersonU = "Equity, Diversity and Inclusion in Science",
     fanny_eugene = "Shaping Science Policy to Improve Equity, Diversity and Inclusion",
+    maryrosebgill = "Shaping Science Policy to Improve Equity, Diversity and Inclusion",
+    Diversity_Blog = "Shaping Science Policy to Improve Equity, Diversity and Inclusion",
+    aaas = "Shaping Science Policy to Improve Equity, Diversity and Inclusion",
+    FRQ_NT = "Shaping Science Policy to Improve Equity, Diversity and Inclusion",
     # Greg
     MitacsCanada = "Risk Communication and Engagement with the Public",
     AKillikelly = "Risk Communication and Engagement with the Public",
@@ -40,7 +48,6 @@ panel = dict(
     SciChefCan = "Granting Agencies and Participatory Science in Canada",
     MollyShoichet = "Granting Agencies and Participatory Science in Canada",
     CIHR_IRSC = "Granting Agencies and Participatory Science in Canada",
-    NSERC_CRSNG = "Granting Agencies and Participatory Science in Canada",
     Joe_S_Sparling = "Where the Rubber Meets the Road",
     CAPSACSP = "Where the Rubber Meets the Road",
     # Conor
@@ -55,5 +62,6 @@ panel = dict(
     CFIA_Canada = "Should science-based Organizations Define their Risk Tolerances",
     #BCHealth = "Putting Our Minds Together",
     itsinyoutogive = "From Crisis to Confidence",
-    DrDanaDevine = "From Crisis to Confidence"
-    )
+    DrDanaDevine = "From Crisis to Confidence")
+# remove having to check for upper and lower case letters, since Twitter is case insensitive.
+panel = {k.lower(): v for k, v in panel.items()}
