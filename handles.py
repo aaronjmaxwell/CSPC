@@ -4,7 +4,8 @@ panel = dict(
                 "Granting Agencies and Participatory Science in Canada"], # Greg
     NSERC_CRSNG = ["Shaping Science Policy to Improve Equity, Diversity and Inclusion", # Jennifer
         "Granting Agencies and Participatory Science in Canada"], # Greg
-    NRCan = ["Canada's Climate Change Adaptation Platform",
+    NRCan = ["Canada's Climate Change Adaptation Platform", #Greg
+        "Bridging Science and Indigenous Knowledge Systems", #Chad
         "From AI to Policy (Map-)Making"], # Aaron
     OntScienceCtr = ["Breaking the Habit", # Aaron
                     "The Status of Science Literacy in Canada"], # Greg
@@ -57,6 +58,15 @@ panel = dict(
     Science2Action = "Connecting Science with Policy in Canada",
     WillemseLA = "Fake News, Fake Therapies",
     StemCellNetwork = "Fake News, Fake Therapies",
+    #Moushumi
+    rtparkuw = "Science Fact or Science Fiction?",
+    stem_fellowship = "A Data Native Generation's Approach to Science",
+    swc_can = "Who is a science communicator?",
+    commstudies_cu = "Communication culture",
+    jschool_cu = "Communication culture",
+    conversationca = "How a new model of journalism is connecting science and the public",
+    # Chad
+    DLEKirkwood = "Bridging Science and Indigenous Knowledge Systems",
     # Rhiannon
     AlyssaDaku = "Should science-based Organizations Define their Risk Tolerances",
     CFIA_Canada = "Should science-based Organizations Define their Risk Tolerances",
