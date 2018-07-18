@@ -81,7 +81,7 @@ def Engagements(df, F=None):
         df.Days = (df.index - df.index.values[0]).days
     else:
         F = 1
-    
+
     df['Other'] = df[['Replies', 'Follows', 'Hashtag']].sum(axis = 1)
 
     fig, ax = plt.subplots(2, figsize = (8, 5))
@@ -174,7 +174,7 @@ def Impressions(df, kwarg):
     Z = Y.evaluate(X)
     Z = Z / Z.max()
     kw = dict(edgecolor = 'none', facecolor = 'green')
-    ax[0].fill_between(Z + xlim[0], X, 0, alpha = 0.6, **kw)
+    ax[0].fill_between(8 * Z + xlim[0], X, 0, alpha = 0.6, **kw)
     ax[0].set_xlim(xlim)
     ax[0].set_ylim(0, np.max(ylim))
     xt = ax[0].get_xticks()

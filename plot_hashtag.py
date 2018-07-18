@@ -67,18 +67,24 @@ def Impressions(df, kwarg):
 
     PlotTweets(ax[0], df.Days, df.Rate, kwarg, 'Impressions\n(' + r'$\heartsuit$' + ' + RT) / TWT',
         interpolate = True)
-    ax[0].text(227, 4, '#CSPC2017', fontsize = 6, rotation = 90)
+
+    ax[0].set_ylim(0, 15)
+    #ax[0].text(227, 4, '#CSPC2017', fontsize = 6, rotation = 90)
+
+    # Impression Rate
     ax[0].grid(color = 'black', alpha = 0.25)
     xlim = ax[0].get_xlim()
     ylim = ax[0].get_ylim()
+
     Y = sci.stats.gaussian_kde(df.Rate.values, bw_method = 0.1)
     X = np.linspace(ylim[0], ylim[1], np.round((ylim[1] - ylim[0]) / 0.05))
     Z = Y.evaluate(X)
     Z = Z / Z.max()
+
     kw = dict(edgecolor = 'none', facecolor = 'green')
-    ax[0].fill_between(Z + xlim[0], X, 0, alpha = 0.6, **kw)
+    ax[0].fill_between(8 * Z + xlim[0], X, 0, alpha = 0.6, **kw)
     ax[0].set_xlim(xlim)
-    ax[0].set_ylim(0, 15)#np.max(ylim))
+
     xt = ax[0].get_xticks()
     xl = [t if isinstance(t, str) else dater[t.month] + ' ' + str(t.day) for t in [
         df.index[int(t)].date() if ((t >= 0) and (t <= (len(df) - 1))) else '' for t in xt]]
@@ -88,7 +94,7 @@ def Impressions(df, kwarg):
     ax[0].set_title('#' + cf['INFO']['hashtag'], color = 'black')
 
     ax[1].fill_between(X, Z * 100., 0, **kw)
-    ax[1].set_xlim(0, 15)#ylim[1])
+    ax[1].set_xlim(0, ylim[1])
     ax[1].set_ylim((0, 105))
     ax[1].set_xlabel('Impressions', color = 'k')
     ax[1].set_ylabel('Peak Frequency (%)', color = 'k')

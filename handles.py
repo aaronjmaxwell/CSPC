@@ -1,5 +1,5 @@
 panel = dict(
-    # Multiples
+# Multiples
     SSHRC_CRSH = ["Informing Policy by Leveraging Knowledge", # Rebecca
                 "Granting Agencies and Participatory Science in Canada"], # Greg
     NSERC_CRSNG = ["Shaping Science Policy to Improve Equity, Diversity and Inclusion", # Jennifer
@@ -11,25 +11,29 @@ panel = dict(
                     "The Status of Science Literacy in Canada"], # Greg
     Sofia_Barrows = ["Breaking the Habit", # Aaron
         "Equity, Diversity and Inclusion in Science"],
-    # Rebecca
+
+# Rebecca
     CollegeCan = "Incorporating Indigenous Ways of Knowing",
     INFC_eng = "Informing Policy by Leveraging Knowledge",
     Eleanor_Fast = "The Dementia Challenge",
     CAHS_ACSS = "The Dementia Challenge",
-    #  Aaron
+
+#  Aaron
     allouttalemons = "Breaking the Habit",
     Scienceadvice = "Failure to Thrive",
     emmeslin = "Failure to Thrive",
     OCEinnovation = "Commercializing Innovation in Canada",
     BMSchmidt = "Canada 2067",
     LetsTalkScience = "Canada 2067",
-    # Cat
+
+# Cat
     E4Dca = "Integrating Indigenous Knowledge and Western Science",
     LiberEroFellows = "Integrating Indigenous Knowledge and Western Science",
     litscientist = "Improvisation for Science Communication",
     pixelsandplans = "Innovating Science Communication",
     WWFCanada = "Fueling Water Innovation in Atlantic Canada",
-    # Jennifer
+
+# Jennifer
     SFU_Water = "Brainstorming for Canada’s National Water Vision",
     RyUrbanWater = "Brainstorming for Canada’s National Water Vision",
     NicH2Olas = "Brainstorming for Canada’s National Water Vision",
@@ -41,7 +45,8 @@ panel = dict(
     Diversity_Blog = "Shaping Science Policy to Improve Equity, Diversity and Inclusion",
     aaas = "Shaping Science Policy to Improve Equity, Diversity and Inclusion",
     FRQ_NT = "Shaping Science Policy to Improve Equity, Diversity and Inclusion",
-    # Greg
+
+# Greg
     MitacsCanada = "Risk Communication and Engagement with the Public",
     AKillikelly = "Risk Communication and Engagement with the Public",
     Maurice_Bitran = "The Status of Science Literacy in Canada",
@@ -51,27 +56,38 @@ panel = dict(
     CIHR_IRSC = "Granting Agencies and Participatory Science in Canada",
     Joe_S_Sparling = "Where the Rubber Meets the Road",
     CAPSACSP = "Where the Rubber Meets the Road",
-    # Conor
+
+# Conor
     m_m_campbell = "Science Based Policies to Address new Agri-Food Realities",
     uofg = "Science Based Policies to Address new Agri-Food Realities",
     SilkeNebel = "Connecting Science with Policy in Canada",
     Science2Action = "Connecting Science with Policy in Canada",
     WillemseLA = "Fake News, Fake Therapies",
     StemCellNetwork = "Fake News, Fake Therapies",
-    #Moushumi
+
+# Moushumi
     rtparkuw = "Science Fact or Science Fiction?",
     stem_fellowship = "A Data Native Generation's Approach to Science",
-    swc_can = "Who is a science communicator?",
-    commstudies_cu = "Communication culture",
-    jschool_cu = "Communication culture",
-    conversationca = "How a new model of journalism is connecting science and the public",
-    # Chad
+    swc_can = "Who is a Science Communicator?",
+    commstudies_cu = "Communication Culture",
+    jschool_cu = "Communication Culture",
+    conversationca = "How a new Model of Journalism is Connecting Science and the Public",
+
+# Chad
+    Space_Bandit = "How Canada Can Create a Sustainable National Space Infrastructure",
+    CanadianSpace = "How Canada Can Create a Sustainable National Space Infrastructure",
+    exploreplanets = "How Canada Can Create a Sustainable National Space Infrastructure",
+    drcrater = "How Canada Can Create a Sustainable National Space Infrastructure",
     DLEKirkwood = "Bridging Science and Indigenous Knowledge Systems",
-    # Rhiannon
-    AlyssaDaku = "Should science-based Organizations Define their Risk Tolerances",
-    CFIA_Canada = "Should science-based Organizations Define their Risk Tolerances",
+    SJC_fishy = "Enabling Interdisciplinarity for the Next Generation of Problem Solvers",
+    RSCTheAcademies = "Enabling Interdisciplinarity for the Next Generation of Problem Solvers",
+
+# Rhiannon
+    AlyssaDaku = "Should science-based Organizations Define their Risk Tolerances?",
+    CFIA_Canada = "Should science-based Organizations Define their Risk Tolerances?",
     #BCHealth = "Putting Our Minds Together",
     itsinyoutogive = "From Crisis to Confidence",
     DrDanaDevine = "From Crisis to Confidence")
+
 # remove having to check for upper and lower case letters, since Twitter is case insensitive.
 panel = {k.lower(): v for k, v in panel.items()}

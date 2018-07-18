@@ -1,5 +1,5 @@
 #!/bin/bash
-file=tweet_activity_metrics_sciencepolicy_20180704_20180711_en.csv
+file=tweet_activity_metrics_sciencepolicy_20180711_20180718_en.csv
 
 python3 hashtag.py
 awk '{a[i++]=$0} END {for (j=i-1; j>=0;) print a[j--] }' stream.out | sed 's/\//,/g' | sed 's/:/,/g' | sed 's/ /,/g' >> data/hashtag.csv
