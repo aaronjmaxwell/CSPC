@@ -23,6 +23,7 @@ panel = dict(
     Scienceadvice = "Failure to Thrive",
     emmeslin = "Failure to Thrive",
     OCEinnovation = "Commercializing Innovation in Canada",
+    CIFAR_News = "Commercializing Innovation in Canada",
     BMSchmidt = "Canada 2067",
     LetsTalkScience = "Canada 2067",
 
@@ -31,6 +32,7 @@ panel = dict(
     LiberEroFellows = "Integrating Indigenous Knowledge and Western Science",
     litscientist = "Improvisation for Science Communication",
     pixelsandplans = "Innovating Science Communication",
+    yuliakrolik = "Innovating Science Communication",
     WWFCanada = "Fueling Water Innovation in Atlantic Canada",
 
 # Jennifer
