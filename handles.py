@@ -1,29 +1,45 @@
 panel = dict(
 # Multiples
-    SSHRC_CRSH = ["Informing Policy by Leveraging Knowledge", # Rebecca
-                "Granting Agencies and Participatory Science in Canada"], # Greg
+    SSHRC_CRSH = ["New Ways of Informing Policy by Leveraging Scientific Knowledge", # Rebecca
+        "Granting Agencies and Participatory Science in Canada"], # Greg
     NSERC_CRSNG = ["Shaping Science Policy to Improve Equity, Diversity and Inclusion", # Jennifer
         "Granting Agencies and Participatory Science in Canada"], # Greg
     NRCan = ["Canada's Climate Change Adaptation Platform", #Greg
         "Bridging Science and Indigenous Knowledge Systems", #Chad
         "From AI to Policy (Map-)Making"], # Aaron
     OntScienceCtr = ["Breaking the Habit", # Aaron
-                    "The Status of Science Literacy in Canada"], # Greg
+        "The Status of Science Literacy in Canada", # Greg
+        "Making Science Matter"], # Emily
     Sofia_Barrows = ["Breaking the Habit", # Aaron
         "Equity, Diversity and Inclusion in Science"],
+    UofT = ["New Ways of Informing Policy by Leveraging Scientific Knowledge", # Rebecca
+        "Policy and Funding Models for Graduate Students and Postdoctoral Fellows"], # Jennifer
+    emmeslin = ["Failure to Thrive", "Mitigating disruption"], # Aaron, Emily
+    Scienceadvice = ["Failure to Thrive", "Mitigating disruption"], # Aaron, Emily
+    SciChefQC = ["Granting Agencies and Participatory Science in Canada", # Greg
+        "La diversité des formes"], # Emily
+    FRQS1 = ["La diversité des formes", "Strengthening Canada’s Research Ecosystem"], # Emily
+    CIFAR_News = ["Strengthening Canada’s Research Ecosystem", # Emily
+        "Commercializing Innovation in Canada"], # Aaron
+    CIHR_IRSC = ["Strengthening Canada’s Research Ecosystem", # Emily
+        "Granting Agencies and Participatory Science in Canada"], # Greg
+    CFIA_Canada = ["Should science-based Organizations Define their Risk Tolerances?", #Rhiannon
+        "Making Science Matter"], # Emily
 
 # Rebecca
     CollegeCan = "Incorporating Indigenous Ways of Knowing",
-    INFC_eng = "Informing Policy by Leveraging Knowledge",
+    INFC_eng = "New Ways of Informing Policy by Leveraging Scientific Knowledge",
+    WesternU = "New Ways of Informing Policy by Leveraging Scientific Knowledge",
+    GAC_Corporate = "New Ways of Informing Policy by Leveraging Scientific Knowledge",
     Eleanor_Fast = "The Dementia Challenge",
     CAHS_ACSS = "The Dementia Challenge",
+    howardbergman2 = "The Dementia Challenge",
+    UWSPHHS = "The Dementia Challenge",
+    mcgillu = "The Dementia Challenge",
 
 #  Aaron
     allouttalemons = "Breaking the Habit",
-    Scienceadvice = "Failure to Thrive",
-    emmeslin = "Failure to Thrive",
     OCEinnovation = "Commercializing Innovation in Canada",
-    CIFAR_News = "Commercializing Innovation in Canada",
     BMSchmidt = "Canada 2067",
     LetsTalkScience = "Canada 2067",
 
@@ -41,21 +57,29 @@ panel = dict(
     NicH2Olas = "Brainstorming for Canada’s National Water Vision",
     Zafar_Adeel_ = "Brainstorming for Canada’s National Water Vision",
     RySciDean = "Equity, Diversity and Inclusion in Science",
+    ImogenRCoePhD = "Equity, Diversity and Inclusion in Science",
     RyersonU = "Equity, Diversity and Inclusion in Science",
     fanny_eugene = "Shaping Science Policy to Improve Equity, Diversity and Inclusion",
     maryrosebgill = "Shaping Science Policy to Improve Equity, Diversity and Inclusion",
     Diversity_Blog = "Shaping Science Policy to Improve Equity, Diversity and Inclusion",
     aaas = "Shaping Science Policy to Improve Equity, Diversity and Inclusion",
     FRQ_NT = "Shaping Science Policy to Improve Equity, Diversity and Inclusion",
+    CukierWendy = "Harnessing Diversity and Inclusion to Drive Innovation",
+    RyersonDI = "Harnessing Diversity and Inclusion to Drive Innovation",
+    SocMedDr = "Harnessing Diversity and Inclusion to Drive Innovation",
+    M2patter = "Harnessing Diversity and Inclusion to Drive Innovation",
+    robertlukedotca = "The Logic of Inclusive Innovation",
+    Dori_Danthro = "The Logic of Inclusive Innovation",
+    juttatrevira = "The Logic of Inclusive Innovation",
+    MalavikaKumaran = "The Logic of Inclusive Innovation",
+    BerubeDo = "The Logic of Inclusive Innovation",
 
 # Greg
     MitacsCanada = "Risk Communication and Engagement with the Public",
     AKillikelly = "Risk Communication and Engagement with the Public",
     Maurice_Bitran = "The Status of Science Literacy in Canada",
-    SciChefQC = "Granting Agencies and Participatory Science in Canada",
     SciChefCan = "Granting Agencies and Participatory Science in Canada",
     MollyShoichet = "Granting Agencies and Participatory Science in Canada",
-    CIHR_IRSC = "Granting Agencies and Participatory Science in Canada",
     Joe_S_Sparling = "Where the Rubber Meets the Road",
     CAPSACSP = "Where the Rubber Meets the Road",
 
@@ -84,9 +108,39 @@ panel = dict(
     SJC_fishy = "Enabling Interdisciplinarity for the Next Generation of Problem Solvers",
     RSCTheAcademies = "Enabling Interdisciplinarity for the Next Generation of Problem Solvers",
 
+# Emily
+    GenomeCanada = "Mitigating disruption",
+    SES_UBC = "Mitigating disruption",
+    SallyNAitken = "Mitigating disruption",
+    genomics_policy = "Mitigating disruption",
+    GenomeQuebec = "Mitigating disruption",
+    crchuqc = "Mitigating disruption",
+    MadisonRilling = "La diversité des formes",
+    FRQSC = "La diversité des formes",
+    FRQ_N = "La diversité des formes",
+    Roche = "Bringing Innovative Medicines into the Hands of Patients w/Alzheimer’s",
+    RocheCanada = "Bringing Innovative Medicines into the Hands of Patients w/Alzheimer’s",
+    AlzCanada = "Bringing Innovative Medicines into the Hands of Patients w/Alzheimer’s",
+    ideas_idees = "The social implications of emerging technologies",
+    pseverinson = "The social implications of emerging technologies",
+    NIVAInc = "Making Science Matter",
+    AntonHolland = "Making Science Matter",
+    ACIA_Aliments = "Making Science Matter",
+    paisley_c = "Making Science Matter",
+    JimHandman = "Making Science Matter",
+    SMCCanada = "Making Science Matter",
+    purnimasundar = "Making Science Matter",
+    CYMH_ON = "Making Science Matter",
+    ChiefSciCan = "Strengthening Canada’s Research Ecosystem",
+    GairdnerAwards = "Strengthening Canada’s Research Ecosystem",
+    UAlberta = "Strengthening Canada’s Research Ecosystem",
+    U15ca = "Strengthening Canada’s Research Ecosystem",
+    picardonhealth = "Strengthening Canada’s Research Ecosystem",
+    friendsofcihr = "Strengthening Canada’s Research Ecosystem",
+
+
 # Rhiannon
     AlyssaDaku = "Should science-based Organizations Define their Risk Tolerances?",
-    CFIA_Canada = "Should science-based Organizations Define their Risk Tolerances?",
     #BCHealth = "Putting Our Minds Together",
     itsinyoutogive = "From Crisis to Confidence",
     DrDanaDevine = "From Crisis to Confidence")

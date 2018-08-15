@@ -155,9 +155,18 @@ def Targets(df):
     fig, ax = plt.subplots(2, 2, figsize = (8, 5), sharex = True)
     c = ['F', 'RT', 'Imp', 'Rate']
     l = ['Likes', 'Retweets', 'Total', 'Rate']
+    label = r'm: {:.2f}, $\sigma$: {:.2f}, $R^2$: {:.2f}, $\chi^2$: {:.2f}'
     for i in range(4):
         j, k = i // 2, i % 2
-        ax[j, k].plot(df.TWT, df[c[i]], '-o', mfc = 'none', ms = 5, lw = 1, mew = 1)
+        x, y = df.TWT.values, df[c[i]].values
+        m, b, r, p, s  = stats.linregress(x, y)
+        y_hat = m * x + b
+        std = np.sqrt(np.sum((y - y_hat)**2) / len(y))
+        chi = np.sum((y - y_hat)**2 / y)
+        ax[j, k].plot(x, y, 'o', mfc = 'none', ms = 5, mew = 1)
+        ax[j, k].plot(x, y_hat, label = label.format(m, std, r, chi))
+        ax[j, k].legend(fontsize = 6)
+
         if (j == 1):
             ax[j, k].set_xlabel('Tweets')
         ax[j, k].set_ylabel(l[i])
@@ -167,7 +176,7 @@ def Targets(df):
             t.set_fontsize(8)
         ax[j, k].patch.set_alpha(0)
     fig.patch.set_alpha(0)
-    plt.savefig('images/Hashtag_Targets.png', dpi = 300)
+    plt.savefig('images/Hashtag_Impact.png', dpi = 300)
     plt.clf()
     plt.close()
 
@@ -184,9 +193,9 @@ if __name__ == "__main__":
     df['Days'] = (df.index - df.index[0]).days
     #df = df.loc['2017-03-20':'2017-10-29'].append(df.loc['2017-11-06':])
     # Tweets
-    #Tweets(df, kwarg)
+    Tweets(df, kwarg)
     # Impression Rate
-    #Impressions(df, kwarg)
+    Impressions(df, kwarg)
     # Grouping into weeks
     df.drop(['Days'], axis = 1, inplace = True)
     df = df.groupby(pd.Grouper(freq = '7D')).sum()
@@ -194,6 +203,6 @@ if __name__ == "__main__":
     df['Rate'] = df.Imp / df.TWT
     df.fillna(0.0, inplace = True)
     kwarg = dict(facecolor = '', edgecolor = 'cyan', linewidth = 1, align = 'edge', alpha = 1)
-    #WeeklyTweets(df, kwarg)
+    WeeklyTweets(df, kwarg)
     Targets(df)
     print(df.tail())

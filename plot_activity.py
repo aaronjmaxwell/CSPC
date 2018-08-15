@@ -89,7 +89,9 @@ def Engagements(df, F=None):
 
     for i in range(len(C)):
         y = df[C[i]].values
-        Y = y / df.Engagements.values
+        Y = np.zeros(len(y))
+        idx = np.where(df.Engagements.values > 0)
+        Y[idx] = y[idx] / df.Engagements.values[idx]
         ax[0].bar(df.Days.values, y, bottom = b, color = c[i], label = C[i], **kw)
         ax[1].bar(df.Days.values, Y, bottom = B, color = c[i], label = C[i], **kw)
 
