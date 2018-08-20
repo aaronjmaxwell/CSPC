@@ -155,18 +155,21 @@ def Targets(df):
     fig, ax = plt.subplots(2, 2, figsize = (8, 5), sharex = True)
     c = ['F', 'RT', 'Imp', 'Rate']
     l = ['Likes', 'Retweets', 'Total', 'Rate']
-    label = r'm: {:.2f}, $\sigma$: {:.2f}, $R^2$: {:.2f}, $\chi^2$: {:.2f}'
+    yl = [250, 125, 400, 12]
+    label = r'm: {:.2f} $\pm$ {:.2f}, $\sigma$: {:.2f}, $R^2$: {:.2f}, $p$: {:.2g}'
     for i in range(4):
         j, k = i // 2, i % 2
         x, y = df.TWT.values, df[c[i]].values
         m, b, r, p, s  = stats.linregress(x, y)
         y_hat = m * x + b
-        std = np.sqrt(np.sum((y - y_hat)**2) / len(y))
-        chi = np.sum((y - y_hat)**2 / y)
+        std = np.sqrt(np.sum((y - y_hat)**2) / (len(y) - 2))
         ax[j, k].plot(x, y, 'o', mfc = 'none', ms = 5, mew = 1)
-        ax[j, k].plot(x, y_hat, label = label.format(m, std, r, chi))
+        ax[j, k].plot(x, y_hat, label = label.format(m, s, std, r, p))
         ax[j, k].legend(fontsize = 6)
 
+        ax[j, k].set_xlim(0, 55)
+        ax[j, k].set_ylim(0, yl[i])
+        ax[j, k].set_xticks([i * 5 for i in range(12)])
         if (j == 1):
             ax[j, k].set_xlabel('Tweets')
         ax[j, k].set_ylabel(l[i])
@@ -175,6 +178,7 @@ def Targets(df):
         for t in ax[j, k].get_yticklabels():
             t.set_fontsize(8)
         ax[j, k].patch.set_alpha(0)
+        ax[j, k].grid()
     fig.patch.set_alpha(0)
     plt.savefig('images/Hashtag_Impact.png', dpi = 300)
     plt.clf()
@@ -204,5 +208,5 @@ if __name__ == "__main__":
     df.fillna(0.0, inplace = True)
     kwarg = dict(facecolor = '', edgecolor = 'cyan', linewidth = 1, align = 'edge', alpha = 1)
     WeeklyTweets(df, kwarg)
-    Targets(df)
     print(df.tail())
+    Targets(df)

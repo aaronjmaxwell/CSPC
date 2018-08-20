@@ -9,9 +9,9 @@ auth = tweepy.OAuthHandler(cf['AUTH']['CONSUMER_KEY'], cf['AUTH']['CONSUMER_SECR
 auth.set_access_token(cf['AUTH']['OAUTH_TOKEN'], cf['AUTH']['OAUTH_TOKEN_SECRET'])
 # launch api
 api = tweepy.API(auth)
-tweet = tweepy.Cursor(api.search, q = cf['INFO']['hashtag'], since = cf['DATE']['since'], until
+tweet = tweepy.Cursor(api.search, q = cf['CONF']['hashtag'], since = cf['DATE']['since'], until
     = cf['DATE']['until']).items()
-out = open(cf['INFO']['file'], "w")
+out = open(cf['CONF']['file'], "w")
 for i, t in enumerate(tweet):
     if ((i + 1) % 1000 == 0):
         for j in range(600):
