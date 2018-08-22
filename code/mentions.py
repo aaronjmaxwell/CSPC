@@ -1,6 +1,6 @@
 import pandas as pd
 
-exec(open('handles.py').read())
+exec(open('./code/handles.py').read())
 df = pd.read_csv('./data/promotion.csv')
 
 col_to_drop = list()

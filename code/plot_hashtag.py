@@ -48,14 +48,14 @@ def Tweets(df, kwarg):
 # interpolate retweets
     kwarg['color'] = 'blue'
     PlotTweets(ax[2], df.Days.values, df.RT.values, kwarg, 'RT', interpolate = True)
-    #ax[2].text(227, 220, '#' + cf['INFO']['hashtag'], fontsize = 6, rotation = 90)
+    #ax[2].text(227, 220, '#' + cf['CONF']['hashtag'], fontsize = 6, rotation = 90)
 # finish
     xt = ax[2].get_xticks()
     xl = [t if isinstance(t, str) else dater[t.month] + ' ' + str(t.day) for t in [
         df.index[int(t)].date() if ((t >= 0) and (t <= (len(df) - 1))) else '' for t in xt]]
     ax[2].set_xticklabels(xl, fontsize = 8)
     ax[2].set_xlabel('Days', color = 'black')
-    ax[0].set_title('#' + cf['INFO']['hashtag'], color = 'black')
+    ax[0].set_title('#' + cf['CONF']['hashtag'], color = 'black')
     fig.patch.set_alpha(0.0)
     plt.savefig('images/Hashtag_Activity.png', dpi = 300)
     plt.clf()
@@ -93,7 +93,7 @@ def Impressions(df, kwarg):
     ax[0].set_xticklabels(xl)
     ax[0].set_xticklabels(xl)
     ax[0].set_xlabel('Days', color = 'black')
-    ax[0].set_title('#' + cf['INFO']['hashtag'], color = 'black')
+    ax[0].set_title('#' + cf['CONF']['hashtag'], color = 'black')
 
     ax[1].fill_between(X, Z * 100., 0, **kw)
     ax[1].set_xlim(0, ylim[1])
@@ -134,7 +134,7 @@ def WeeklyTweets(df, kwarg):
         for t in ax[i].get_yticklabels():
             t.set_fontsize(8)
 
-    #ax[2].text(32.25, 600, '#' + cf['INFO']['hashtag'], fontsize = 6, rotation = 90)
+    #ax[2].text(32.25, 600, '#' + cf['CONF']['hashtag'], fontsize = 6, rotation = 90)
 
     ax[2].xaxis.set_tick_params(pad = -1)
     ax[2].set_xticklabels([str(d.date())[5:] for d in df.index], fontsize = 6, rotation = 40)
@@ -143,7 +143,7 @@ def WeeklyTweets(df, kwarg):
         for major in ax[i].xaxis.get_majorticklines():
             major.set_visible(False)
 
-    ax[0].set_title('#' + cf['INFO']['hashtag'], color = 'black')
+    ax[0].set_title('#' + cf['CONF']['hashtag'], color = 'black')
     fig.patch.set_alpha(0.0)
     plt.savefig('images/Hashtag_Weekly.png', dpi = 300)
     plt.clf()
