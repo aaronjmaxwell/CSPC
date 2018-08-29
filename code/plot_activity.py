@@ -1,11 +1,11 @@
 import configparser
-import numpy as np
+import scipy as sp
 import pandas as pd
 import datetime as dt
 import matplotlib.pyplot as plt
 import matplotlib as mpl
-import scipy as sci
 from scipy import interpolate
+from scipy import signal
 from scipy import stats
 
 from cleaner import cleaner
@@ -16,17 +16,23 @@ cf = configparser.ConfigParser()
 cf.read('cspc.ini')
 
 kwarg = dict(color = '', linewidths = 0, s = 5, edgecolor = 'none')
-#kwarg = dict(color = '', lw = 0.5, ls = ':', marker = 'o', ms = 2, mew = 0.75, mfc = 'none')
 
 def PlotTweets(cax, x, y, kwarg, label, interpolate=True):
     """Plot the raw data with an optional interpolated line."""
+    X = sp.linspace(0, x.max(), 10 * (x.max() + 1))
+    
     if interpolate:
-        X = np.linspace(0, x.max(), 10 * (x.max() + 1))
-        Y = sci.interpolate.interp1d(x, y, kind = 'cubic')
+        Y = sp.interpolate.interp1d(x, y, kind = 'quadratic')
         cax.plot(X, Y(X), alpha = 0.6, color = kwarg['color'], lw = 0.5, ls = ':')
         cax.scatter(x, y, label = label, **kwarg)
+    
     else:
-        cax.plot(x, y, **kwarg)
+        window = sp.signal.bartlett(6)
+        Y = sp.signal.convolve(y, window, mode = 'same') / window.sum()
+        Y = sp.interpolate.interp1d(x, Y, kind = 'quadratic')
+        cax.plot(X, Y(X), alpha = 0.6, color = kwarg['color'], lw = 0.5, ls = ':')
+        cax.scatter(x, y, label = label, **kwarg)
+    
     cax.patch.set_alpha(0.0)
     for t in cax.get_xticklabels():
         t.set_fontsize(8)
@@ -39,10 +45,12 @@ def Activity(df, kwarg):
     colors = ['black', 'red', 'blue', 'green']
     keys = ['Tweet', 'Likes', 'Retweets', 'Details']
     labels = ['Tweets', r'$\heartsuit$', 'Retweets', 'Details']
+    max_ = 0
 
     for color, key, label in zip(colors, keys, labels):
         kwarg['color'] = color
-        PlotTweets(ax, df.Days.values, df[key].values, kwarg, label, interpolate = True)
+        max_ = max(max_, df[key].values.std())
+        PlotTweets(ax, df.Days.values, df[key].values, kwarg, label, interpolate = False)
 
     #ax[2].text(227, 220, '#CSPC2017', fontsize = 6, rotation = 90)
     xt = ax.get_xticks()
@@ -53,6 +61,7 @@ def Activity(df, kwarg):
     ax.set_xlabel('Days', color = 'black')
     ax.set_title('@sciencepolicy', color = 'black')
     ax.set_ylabel('Daily Count', color = 'black')
+    ax.set_ylim(0, 5 * max_)
 
     for t in ax.get_xticklabels():
         t.set_fontsize(8)
@@ -85,12 +94,12 @@ def Engagements(df, F=None):
     df['Other'] = df[['Replies', 'Follows', 'Hashtag']].sum(axis = 1)
 
     fig, ax = plt.subplots(2, figsize = (8, 5))
-    b, B = np.zeros(len(df)), np.zeros(len(df))
+    b, B = sp.zeros(len(df)), sp.zeros(len(df))
 
     for i in range(len(C)):
         y = df[C[i]].values
-        Y = np.zeros(len(y))
-        idx = np.where(df.Engagements.values > 0)
+        Y = sp.zeros(len(y))
+        idx = sp.where(df.Engagements.values > 0)
         Y[idx] = y[idx] / df.Engagements.values[idx]
         ax[0].bar(df.Days.values, y, bottom = b, color = c[i], label = C[i], **kw)
         ax[1].bar(df.Days.values, Y, bottom = B, color = c[i], label = C[i], **kw)
@@ -134,9 +143,12 @@ def Clicks(df, kwarg):
     fig, ax = plt.subplots(figsize = (8, 5))
     colors = ['black', 'red', 'blue', 'green', 'goldenrod']
     keys = ['Tweet', 'Profile', 'URL', 'Hashtag', 'Media']
+    max_ = 0
+    
     for color, key in zip(colors, keys):
         kwarg['color'] = color
-        PlotTweets(ax, df.Days.values, df[key].values, kwarg, key, interpolate = True)
+        max_ = max(max_, df[key].values.std())
+        PlotTweets(ax, df.Days.values, df[key].values, kwarg, key, interpolate = False)
 
     #ax[2].text(227, 220, '#CSPC2017', fontsize = 6, rotation = 90)
     xt = ax.get_xticks()
@@ -147,6 +159,7 @@ def Clicks(df, kwarg):
     ax.set_xlabel('Days', color = 'black')
     ax.set_title('@sciencepolicy', color = 'black')
     ax.set_ylabel('Daily Count', color = 'black')
+    ax.set_ylim(0, 5 * max_)
 
     for t in ax.get_xticklabels():
         t.set_fontsize(8)
@@ -171,14 +184,14 @@ def Impressions(df, kwarg):
     ax[0].grid(color = 'black', alpha = 0.25)
     xlim = ax[0].get_xlim()
     ylim = ax[0].get_ylim()
-    Y = sci.stats.gaussian_kde(df.Rate.values, bw_method = 0.1)
-    X = np.linspace(ylim[0], ylim[1], np.round((ylim[1] - ylim[0]) / 0.01))
+    Y = sp.stats.gaussian_kde(df.Rate.values, bw_method = 0.1)
+    X = sp.linspace(ylim[0], ylim[1], sp.around((ylim[1] - ylim[0]) / 0.01))
     Z = Y.evaluate(X)
     Z = Z / Z.max()
     kw = dict(edgecolor = 'none', facecolor = 'green')
     ax[0].fill_between(8 * Z + xlim[0], X, 0, alpha = 0.6, **kw)
     ax[0].set_xlim(xlim)
-    ax[0].set_ylim(0, np.max(ylim))
+    ax[0].set_ylim(0, max(ylim))
     xt = ax[0].get_xticks()
     xl = [t if isinstance(t, str) else dater[t.month] + ' ' + str(t.day) for t in [
         df.index[int(t)].date() if ((t >= 0) and (t <= (len(df) - 1))) else '' for t in xt]]
@@ -214,7 +227,7 @@ def WeeklyTweets(df, kwarg):
     colors = ['black', 'red', 'blue']
     columns = ['TWT', 'F', 'RT']
     labels = ['TWT', r'$\heartsuit$', 'RT']
-    x = np.arange(len(df))
+    x = sp.arange(len(df))
     for i in range(3):
         kwarg['facecolor'] = colors[i]
         kwarg['alpha'] = 0.6
