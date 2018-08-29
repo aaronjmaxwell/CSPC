@@ -1,5 +1,5 @@
 #!/bin/bash
-file=tweet_activity_metrics_sciencepolicy_20180815_20180822_en.csv
+file=tweet_activity_metrics_sciencepolicy_20180822_20180829_en.csv
 
 python3 code/hashtag.py
 awk '{a[i++]=$0} END {for (j=i-1; j>=0;) print a[j--] }' stream.out | sed 's/\//,/g' | sed 's/:/,/g' | sed 's/ /,/g' >> data/hashtag.csv
@@ -14,7 +14,7 @@ python3 code/cleaner.py $file
 awk '{a[i++]=$0} END {for (j=i-1; j>=0;) print a[j--] }' activity.out >> data/activity.csv
 
 rm -fv *.out $file
-python3 plot_hashtag.py
-python3 plot_activity.py
-python3 mentions.py
-python3 communicators.py
+python3 code/plot_hashtag.py
+python3 code/plot_activity.py
+python3 code/mentions.py
+python3 code/communicators.py
