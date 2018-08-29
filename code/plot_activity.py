@@ -27,7 +27,7 @@ def PlotTweets(cax, x, y, kwarg, label, interpolate=True):
         cax.scatter(x, y, label = label, **kwarg)
     
     else:
-        window = sp.signal.bartlett(6)
+        window = sp.signal.bartlett(7)
         Y = sp.signal.convolve(y, window, mode = 'same') / window.sum()
         Y = sp.interpolate.interp1d(x, Y, kind = 'quadratic')
         cax.plot(X, Y(X), alpha = 0.6, color = kwarg['color'], lw = 0.5, ls = ':')
