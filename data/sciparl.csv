@@ -118,3 +118,5 @@ M,D,Y,h,m,s,pm,handle,F,RT,O,E
 08,25,18,10,23,00,PM,jambina,0,112,False,ChiefSciCan
 08,27,18,05,35,20,PM,SMCCanada,0,112,False,ChiefSciCan
 08,27,18,05,56,18,PM,darekmoreau,0,112,False,ChiefSciCan
+08,31,18,05,12,38,PM,MattMcTaggart,0,1,True,
+08,31,18,05,34,45,PM,genevi_ferguson,0,1,False,MattMcTaggart
