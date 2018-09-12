@@ -156,15 +156,20 @@ def Targets(df):
     c = ['F', 'RT', 'Imp', 'Rate']
     l = ['Likes', 'Retweets', 'Total', 'Rate']
     yl = [250, 125, 400, 12]
-    label = r'm: {:.2f} $\pm$ {:.2f}, $\sigma$: {:.2f}, $R^2$: {:.2f}, $p$: {:.2g}'
+    label = r'm: {:.2f} $\pm$ {:.2f}, $\sigma$: {:.2f}, $R^2$: {:.2f}'
+    altlabel = r'm: {:.2f} $\pm$ {:.2f}, $\sigma$: {:.2f}, $b$ {:.2f}, $\mu$: {:.2f} $\pm$ {:.2f}'
     for i in range(4):
         j, k = i // 2, i % 2
         x, y = df.TWT.values, df[c[i]].values
-        m, b, r, p, s  = stats.linregress(x, y)
+        m, b, r, __, s  = stats.linregress(x, y)
         y_hat = m * x + b
         std = np.sqrt(np.sum((y - y_hat)**2) / (len(y) - 2))
         ax[j, k].plot(x, y, 'o', mfc = 'none', ms = 5, mew = 1)
-        ax[j, k].plot(x, y_hat, label = label.format(m, s, std, r, p))
+        if (i < 3):
+            ax[j, k].plot(x, y_hat, label = label.format(m, s, std, r))
+        else:
+            ax[j, k].plot(x, y_hat, label = altlabel.format(m, s, std, b, y.mean(), y.std()))
+        
         ax[j, k].legend(fontsize = 6)
 
         ax[j, k].set_xlim(0, 55)
