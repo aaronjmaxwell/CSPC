@@ -3,7 +3,8 @@ panel = dict(
     SSHRC_CRSH = ["New Ways of Informing Policy by Leveraging Scientific Knowledge", # Rebecca
         "Granting Agencies and Participatory Science in Canada"], # Greg
     NSERC_CRSNG = ["Shaping Science Policy to Improve Equity, Diversity and Inclusion", # Jennifer
-        "Granting Agencies and Participatory Science in Canada"], # Greg
+        "Granting Agencies and Participatory Science in Canada", # Greg
+        "Federal-Provincial Coordination in Research and Innovation Funding"], # Greg
     NRCan = ["Canada's Climate Change Adaptation Platform", #Greg
         "Bridging Science and Indigenous Knowledge Systems", #Chad
         "From AI to Policy (Map-)Making"], # Aaron
@@ -14,10 +15,13 @@ panel = dict(
         "Equity, Diversity and Inclusion in Science"],
     UofT = ["New Ways of Informing Policy by Leveraging Scientific Knowledge", # Rebecca
         "Policy and Funding Models for Graduate Students and Postdoctoral Fellows"], # Jennifer
-    emmeslin = ["Failure to Thrive", "Mitigating disruption"], # Aaron, Emily
-    Scienceadvice = ["Failure to Thrive", "Mitigating disruption"], # Aaron, Emily
+    emmeslin = ["Failure to Thrive", "Mitigating Disruption", # Aaron, Emily
+        "The Social Implications of Emerging Technologies"], # Emily
+    Scienceadvice = ["Failure to Thrive", "Mitigating Disruption", # Aaron, Emily
+        "The Social Implications of Emerging Technologies"], # Emily
     SciChefQC = ["Granting Agencies and Participatory Science in Canada", # Greg
-        "La diversité des formes"], # Emily
+        "La diversité des formes", # Emily
+        "How a new Model of Journalism is Connecting Science and the Public"], # Moushumi
     FRQS1 = ["La diversité des formes", "Strengthening Canada’s Research Ecosystem"], # Emily
     CIFAR_News = ["Strengthening Canada’s Research Ecosystem", # Emily
         "Commercializing Innovation in Canada"], # Aaron
@@ -49,6 +53,10 @@ panel = dict(
     litscientist = "Improvisation for Science Communication",
     pixelsandplans = "Innovating Science Communication",
     yuliakrolik = "Innovating Science Communication",
+    J_Provost = "Innovating Science Communication",
+    ChantalOnwatin = "Innovating Science Communication",
+    heysciencesam = "Innovating Science Communication",
+    scicommcat = "Innovating Science Communication",
     WWFCanada = "Fueling Water Innovation in Atlantic Canada",
 
 # Jennifer
@@ -69,6 +77,7 @@ panel = dict(
     SocMedDr = "Harnessing Diversity and Inclusion to Drive Innovation",
     M2patter = "Harnessing Diversity and Inclusion to Drive Innovation",
     robertlukedotca = "The Logic of Inclusive Innovation",
+    OCAD = "The Logic of Inclusive Innovation",
     Dori_Danthro = "The Logic of Inclusive Innovation",
     juttatrevira = "The Logic of Inclusive Innovation",
     MalavikaKumaran = "The Logic of Inclusive Innovation",
@@ -82,6 +91,13 @@ panel = dict(
     MollyShoichet = "Granting Agencies and Participatory Science in Canada",
     Joe_S_Sparling = "Where the Rubber Meets the Road",
     CAPSACSP = "Where the Rubber Meets the Road",
+    EminaVeletanlic = "Federal-Provincial Coordination in Research and Innovation Funding",
+    ImpactUofT = "Federal-Provincial Coordination in Research and Innovation Funding",
+    creso_sa = "Federal-Provincial Coordination in Research and Innovation Funding",
+    OISE_CIHE = "Federal-Provincial Coordination in Research and Innovation Funding",
+    UM_Education = "Federal-Provincial Coordination in Research and Innovation Funding",
+    InnovationCA = "Federal-Provincial Coordination in Research and Innovation Funding",
+    c_d_r_d = "Towards a Canadian Life Sciences Supercluster",
 
 # Conor
     m_m_campbell = "Science Based Policies to Address new Agri-Food Realities",
@@ -90,14 +106,25 @@ panel = dict(
     Science2Action = "Connecting Science with Policy in Canada",
     WillemseLA = "Fake News, Fake Therapies",
     StemCellNetwork = "Fake News, Fake Therapies",
+    DrTorahKachur = "Fake News, Fake Therapies",
+    catemeechan = "Fake News, Fake Therapies",
+    AmyZarzeczny = "Fake News, Fake Therapies",
+    jennifer_molson = "Fake News, Fake Therapies",
 
 # Moushumi
-    rtparkuw = "Science Fact or Science Fiction?",
+    RTPARKUW = "Science Fact or Science Fiction?",
+    Mikey_Pereira = "Science Fact or Science Fiction?",
+    CBCOntarioToday = "Science Fact or Science Fiction?",
+    usaskhist = "Science Fact or Science Fiction?",
+    ConwayFraser = "Science Fact or Science Fiction?",
+    waterloohistory = "Science Fact or Science Fiction?",
     stem_fellowship = "A Data Native Generation's Approach to Science",
     swc_can = "Who is a Science Communicator?",
+    Carleton_U = "Communication Culture",
     commstudies_cu = "Communication Culture",
     jschool_cu = "Communication Culture",
     conversationca = "How a new Model of Journalism is Connecting Science and the Public",
+    Scott_White =  = "How a new Model of Journalism is Connecting Science and the Public",
 
 # Chad
     Space_Bandit = "How Canada Can Create a Sustainable National Space Infrastructure",
@@ -109,20 +136,21 @@ panel = dict(
     RSCTheAcademies = "Enabling Interdisciplinarity for the Next Generation of Problem Solvers",
 
 # Emily
-    GenomeCanada = "Mitigating disruption",
-    SES_UBC = "Mitigating disruption",
-    SallyNAitken = "Mitigating disruption",
-    genomics_policy = "Mitigating disruption",
-    GenomeQuebec = "Mitigating disruption",
-    crchuqc = "Mitigating disruption",
+    GenomeCanada = "Mitigating Disruption",
+    SES_UBC = "Mitigating Disruption",
+    SallyNAitken = "Mitigating Disruption",
+    genomics_policy = "Mitigating Disruption",
+    GenomeQuebec = "Mitigating Disruption",
+    crchuqc = "Mitigating Disruption",
     MadisonRilling = "La diversité des formes",
     FRQSC = "La diversité des formes",
     FRQ_N = "La diversité des formes",
     Roche = "Bringing Innovative Medicines into the Hands of Patients w/Alzheimer’s",
     RocheCanada = "Bringing Innovative Medicines into the Hands of Patients w/Alzheimer’s",
     AlzCanada = "Bringing Innovative Medicines into the Hands of Patients w/Alzheimer’s",
-    ideas_idees = "The social implications of emerging technologies",
-    pseverinson = "The social implications of emerging technologies",
+    ideas_idees = "The Social Implications of Emerging Technologies",
+    pseverinson = "The Social Implications of Emerging Technologies",
+    sonia_vani  = "The Social Implications of Emerging Technologies",
     NIVAInc = "Making Science Matter",
     AntonHolland = "Making Science Matter",
     ACIA_Aliments = "Making Science Matter",
@@ -138,6 +166,11 @@ panel = dict(
     picardonhealth = "Strengthening Canada’s Research Ecosystem",
     friendsofcihr = "Strengthening Canada’s Research Ecosystem",
 
+# Noeline
+    Baycrest = "Innovation and Sustainable Aging",
+    POLARCanada = "Supporting the Next Generation of Northern Scientists",
+    uwaterloo = "Managing Receiving Water",
+    SHADnetwork = "Science and Inclusivity",
 
 # Rhiannon
     AlyssaDaku = "Should science-based Organizations Define their Risk Tolerances?",
