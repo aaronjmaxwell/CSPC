@@ -124,7 +124,7 @@ panel = dict(
     commstudies_cu = "Communication Culture",
     jschool_cu = "Communication Culture",
     conversationca = "How a new Model of Journalism is Connecting Science and the Public",
-    Scott_White =  = "How a new Model of Journalism is Connecting Science and the Public",
+    Scott_White = "How a new Model of Journalism is Connecting Science and the Public",
 
 # Chad
     Space_Bandit = "How Canada Can Create a Sustainable National Space Infrastructure",
