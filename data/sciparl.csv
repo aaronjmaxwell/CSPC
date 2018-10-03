@@ -153,3 +153,7 @@ M,D,Y,h,m,s,pm,handle,F,RT,O,E
 09,13,18,05,45,15,PM,sciencepolicy,1,1,True,
 09,13,18,06,04,01,PM,MattMcTaggart,0,1,False,sciencepolicy
 09,14,18,02,00,06,AM,MattMcTaggart,2,0,True,
+09,26,18,09,12,12,PM,MattMcTaggart,5,0,True,
+09,30,18,11,50,25,PM,MattMcTaggart,2,1,True,
+10,01,18,01,26,11,AM,terrycampbell01,0,1,False,MattMcTaggart
+10,01,18,08,06,06,PM,Kin_Kuok,1,0,True,
