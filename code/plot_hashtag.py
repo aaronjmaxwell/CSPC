@@ -16,21 +16,14 @@ cf.read('cspc.ini')
 dater = {1: 'Jan', 2: 'Feb', 3: 'Mar', 4: 'Apr', 5: 'May', 6: 'Jun', 7: 'Jul', 8: 'Aug', 9: 'Sep',
     10: 'Oct', 11: 'Nov', 12: 'Dec'}
 
-kwarg = dict(color = '', linewidths = 0, s = 5, edgecolor = 'none')
-#kwarg = dict(color = '', lw = 0.5, ls = ':', marker = 'o', ms = 2, mew = 0.75, mfc = 'none')
+kwarg = dict(color = '', edgecolor = 'none')
 
-def PlotTweets(cax, x, y, kwarg, label, interpolate=True):
+def PlotTweets(cax, x, y, kwarg, label):
     """Plot the raw data with an optional interpolated line."""
-    if interpolate:
-        X = np.linspace(0, x.max(), 10 * (x.max() + 1))
-        Y = sci.interpolate.interp1d(x, y, kind = 'cubic')
-        cax.plot(X, Y(X), alpha = 0.6, color = kwarg['color'], lw = 0.5, ls = ':')
-        cax.scatter(x, y, **kwarg)
-    else:
-        cax.plot(x, y, **kwarg)
-
+    
+    cax.bar(x, y, np.append(np.diff(x), 1), **kwarg)
     cax.set_ylabel(label, color = 'black')
-    cax.set_ylim(0, max(cax.get_ylim()))
+    cax.set_ylim(0, y.max())
     cax.patch.set_alpha(0.0)
     for t in cax.get_xticklabels():
         t.set_fontsize(8)
@@ -41,13 +34,13 @@ def PlotTweets(cax, x, y, kwarg, label, interpolate=True):
 def Tweets(df, kwarg):
     fig, ax = plt.subplots(3, 1, figsize = (8, 5), sharex = True)
     kwarg['color'] = 'black'
-    PlotTweets(ax[0], df.Days.values, df.TWT.values, kwarg, 'TWT', interpolate = True)
+    PlotTweets(ax[0], df.Days.values, df.TWT.values, kwarg, 'TWT')
 # interpolate favourites
     kwarg['color'] = 'red'
-    PlotTweets(ax[1], df.Days.values, df.F.values, kwarg, r'$\heartsuit$', interpolate = True)
+    PlotTweets(ax[1], df.Days.values, df.F.values, kwarg, r'$\heartsuit$')
 # interpolate retweets
     kwarg['color'] = 'blue'
-    PlotTweets(ax[2], df.Days.values, df.RT.values, kwarg, 'RT', interpolate = True)
+    PlotTweets(ax[2], df.Days.values, df.RT.values, kwarg, 'RT')
     #ax[2].text(227, 220, '#' + cf['CONF']['hashtag'], fontsize = 6, rotation = 90)
 # finish
     xt = ax[2].get_xticks()
@@ -67,10 +60,9 @@ def Impressions(df, kwarg):
     fig, ax = plt.subplots(2, 1, figsize = (8, 5))
     kwarg['color'] = 'black'
 
-    PlotTweets(ax[0], df.Days, df.Rate, kwarg, 'Impressions\n(' + r'$\heartsuit$' + ' + RT) / TWT',
-        interpolate = True)
+    PlotTweets(ax[0], df.Days, df.Rate, kwarg, 'Impressions\n(' + r'$\heartsuit$' + ' + RT) / TWT')
 
-    ax[0].set_ylim(0, 15)
+    ax[0].set_ylim(0, df.Rate.max())
     #ax[0].text(227, 4, '#CSPC2017', fontsize = 6, rotation = 90)
 
     # Impression Rate
@@ -84,8 +76,6 @@ def Impressions(df, kwarg):
     Z = Z / Z.max()
 
     kw = dict(edgecolor = 'none', facecolor = 'green')
-    ax[0].fill_between(8 * Z + xlim[0], X, 0, alpha = 0.6, **kw)
-    ax[0].set_xlim(xlim)
 
     xt = ax[0].get_xticks()
     xl = [t if isinstance(t, str) else dater[t.month] + ' ' + str(t.day) for t in [
