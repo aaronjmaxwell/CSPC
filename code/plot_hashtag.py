@@ -145,7 +145,7 @@ def Targets(df):
     fig, ax = plt.subplots(2, 2, figsize = (8, 5), sharex = True)
     c = ['F', 'RT', 'Imp', 'Rate']
     l = ['Likes', 'Retweets', 'Total', 'Rate']
-    yl = [250, 125, 400, 12]
+    yl = [350, 125, 450, 12]
     label = r'm: {:.2f} $\pm$ {:.2f}, $\sigma$: {:.2f}, $R^2$: {:.2f}'
     altlabel = r'm: {:.2f} $\pm$ {:.2f}, $\sigma$: {:.2f}, $b$ {:.2f}, $\mu$: {:.2f} $\pm$ {:.2f}'
     for i in range(4):
@@ -162,9 +162,9 @@ def Targets(df):
         
         ax[j, k].legend(fontsize = 6)
 
-        ax[j, k].set_xlim(0, 55)
+        ax[j, k].set_xlim(0, 75)
         ax[j, k].set_ylim(0, yl[i])
-        ax[j, k].set_xticks([i * 5 for i in range(12)])
+        ax[j, k].set_xticks([i * 5 for i in range(15)])
         if (j == 1):
             ax[j, k].set_xlabel('Tweets')
         ax[j, k].set_ylabel(l[i])
@@ -204,4 +204,9 @@ if __name__ == "__main__":
     kwarg = dict(facecolor = '', edgecolor = 'cyan', linewidth = 1, align = 'edge', alpha = 1)
     WeeklyTweets(df, kwarg)
     print(df.tail())
+    print('Max\n---')
+    print('Likes:', df.F.max())
+    print('Retweets:', df.RT.max())
+    print('Total:', df.Imp.max())
+    print('Rate:', df.Rate.max())
     Targets(df)
