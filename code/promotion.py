@@ -1,6 +1,7 @@
 import configparser
 import tweepy
 import time
+T = time.monotonic()
 
 cf = configparser.ConfigParser()
 cf.read('cspc.ini')
@@ -14,11 +15,9 @@ tweet = tweepy.Cursor(api.search, q = cf['PANEL']['hashtag'], since = cf['DATE']
 out = open(cf['PANEL']['file'], "w")
 try:
     for i, t in enumerate(tweet):
-        if ((i + 1) % 1000 == 0):
-            for j in range(600):
-                if (j % 60 == 0):
-                    print(j)
-                time.sleep(1)
+        if ((i + 1) % 100 == 0):
+            time.sleep(2)
+            print('{0:4d}: {1:2.3f}'.format((i + 1), time.monotonic() - T))
 
         if ((t.author.screen_name == 'sciencepolicy') & (len(t.entities['user_mentions']) > 0) &
         (t.full_text.find('RT @') < 0)):
