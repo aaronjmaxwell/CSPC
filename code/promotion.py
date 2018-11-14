@@ -15,8 +15,8 @@ tweet = tweepy.Cursor(api.search, q = cf['PANEL']['hashtag'], since = cf['DATE']
 out = open(cf['PANEL']['file'], "w")
 try:
     for i, t in enumerate(tweet):
-        if ((i + 1) % 100 == 0):
-            time.sleep(2)
+        if ((i + 1) % 200 == 0):
+            time.sleep(5)
             print('{0:4d}: {1:2.3f}'.format((i + 1), time.monotonic() - T))
 
         if ((t.author.screen_name == 'sciencepolicy') & (len(t.entities['user_mentions']) > 0) &

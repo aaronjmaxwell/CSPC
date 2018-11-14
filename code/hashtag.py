@@ -15,8 +15,8 @@ tweet = tweepy.Cursor(api.search, q = cf['CONF']['hashtag'], since = cf['DATE'][
 out = open(cf['CONF']['file'], "w")
 try:
     for i, t in enumerate(tweet):
-        if ((i + 1) % 100 == 0):
-            time.sleep(2)
+        if ((i + 1) % 200 == 0):
+            time.sleep(5)
             print('{0:4d}: {1:2.3f}'.format((i + 1), time.monotonic() - T))
         rt = t.text.find('RT @')
         string = t.created_at
