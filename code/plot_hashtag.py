@@ -50,7 +50,7 @@ def Tweets(df, kwarg):
         s = ''
         for idx in ['2018-11-07', '2018-11-08', '2018-11-09']:
             s = s + idx[5:] + ': ' + str(df.loc[idx][c].astype(int)) + '\n'
-        ax[i].text(df.loc['2018-11-07'].Days, 3, s, fontsize = 5, color = 'green')
+        ax[i].text(df.loc['2018-10-01'].Days, ax[i].get_ylim()[1] / 2, s, fontsize = 5, color = 'green')
     
     xt = ax[2].get_xticks()
     xl = [t if isinstance(t, str) else dater[t.month] + ' ' + str(t.day) for t in [
