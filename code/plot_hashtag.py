@@ -46,11 +46,11 @@ def Tweets(df, kwarg):
     ax[0].set_ylim(0, max(M.TWT, m.TWT) + 5)
     ax[1].set_ylim(0, max(M.F, m.F) + 5)
     ax[2].set_ylim(0, max(M.RT, m.RT) + 5)
-    for i, c in enumerate(['TWT', 'F', 'RT']):
-        s = ''
-        for idx in ['2018-11-07', '2018-11-08', '2018-11-09']:
-            s = s + idx[5:] + ': ' + str(df.loc[idx][c].astype(int)) + '\n'
-        ax[i].text(df.loc['2018-10-01'].Days, ax[i].get_ylim()[1] / 2, s, fontsize = 5, color = 'green')
+    #for i, c in enumerate(['TWT', 'F', 'RT']):
+    #    s = ''
+    #    for idx in ['2018-11-07', '2018-11-08', '2018-11-09']:
+    #        s = s + idx[5:] + ': ' + str(df.loc[idx][c].astype(int)) + '\n'
+    #    ax[i].text(df.loc['2018-10-01'].Days, ax[i].get_ylim()[1] / 2, s, fontsize = 5, color = 'green')
     
     xt = ax[2].get_xticks()
     xl = [t if isinstance(t, str) else dater[t.month] + ' ' + str(t.day) for t in [
@@ -118,7 +118,7 @@ def WeeklyTweets(df, kwarg):
     columns = ['TWT', 'F', 'RT']
     labels = ['TWT', r'$\heartsuit$', 'RT']
     x = np.arange(len(df))
-    m, M = df.loc[:'2018-11-06'].max(), df.loc['2018-11-14':].max()
+    m, M = df.loc[:'2019-11-12'].max(), df.loc['2018-11-16':].max()
     for i in range(3):
         kwarg['facecolor'] = colors[i]
         kwarg['alpha'] = 0.6
@@ -130,8 +130,8 @@ def WeeklyTweets(df, kwarg):
         ax[i].patch.set_alpha(0.0)
         ax[i].set_xticks(x)
         ax[i].set_ylim(0, max(m[columns[i]], M[columns[i]]) + 20)
-        ax[i].text(39.25, m[columns[i]] / 2, str(df.loc['2018-11-07'][columns[i]].astype(int)),
-            fontsize = 6, rotation = 90, color = 'green')
+        #ax[i].text(39.25, m[columns[i]] / 2, str(df.loc['2018-11-07'][columns[i]].astype(int)),
+        #    fontsize = 6, rotation = 90, color = 'green')
         for t in ax[i].get_xticklabels():
             t.set_fontsize(8)
         for t in ax[i].get_yticklabels():
