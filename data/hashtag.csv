@@ -142,3 +142,16 @@ M,D,Y,h,m,s,pm,handle,F,RT,O,E
 03,28,19,03,22,13,PM,DSP_SPE,0,4,False,sciencepolicy
 03,28,19,03,52,33,PM,CAN_ACN,0,4,False,sciencepolicy
 03,28,19,05,04,03,PM,FarrahChan,0,4,False,sciencepolicy
+04,01,19,01,48,57,PM,RCIScience,0,2,True,
+04,01,19,03,08,16,PM,watscicomm,0,2,False,RCIScience
+04,01,19,03,13,36,PM,uw_english,0,2,False,RCIScience
+04,01,19,08,30,18,PM,sciencepolicy,5,0,True,
+04,02,19,03,24,31,AM,BadScienceWatch,0,0,True,
+04,02,19,02,30,36,PM,sciencepolicy,2,0,True,
+04,02,19,02,46,07,PM,TempleScott,0,5,False,sciencepolicy
+04,02,19,08,30,20,PM,sciencepolicy,0,3,True,
+04,02,19,08,36,00,PM,salexander_11,0,3,False,sciencepolicy
+04,02,19,08,55,47,PM,yukondoug,0,3,False,sciencepolicy
+04,02,19,09,43,27,PM,frogheart,0,3,False,sciencepolicy
+04,03,19,04,30,16,PM,sciencepolicy,1,1,True,
+04,03,19,04,47,43,PM,TammyJClifford,0,1,False,sciencepolicy
