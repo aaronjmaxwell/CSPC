@@ -170,9 +170,9 @@ def targets(dat):
 
         ax[j, k].legend(fontsize = 6)
 
-        ax[j, k].set_xlim(0, 15)
+        ax[j, k].set_xlim(0, 20)
         ax[j, k].set_ylim(0, yl[i])
-        ax[j, k].set_xticks([i for i in range(15)])
+        ax[j, k].set_xticks([2 * i for i in range(10)])
         if j == 1:
             ax[j, k].set_xlabel('Tweets')
         ax[j, k].set_ylabel(l[i])
