@@ -46,12 +46,12 @@ def tweets(dat, kw):
             t.set_fontsize(8)
         for t in ax[i].get_yticklabels():
             t.set_fontsize(8)
-        ax[i].patch.set_alpha(0)
+        ax[i].patch.set_alpha(0.25)
         ax[i].grid()
 
     ax[1].set_xlabel('Tweets')
 
-    fig.patch.set_alpha(0)
+    fig.patch.set_alpha(0.25)
     plt.savefig('images/Hashtag_Activity.png', dpi = 300)
     plt.clf()
     plt.close()
@@ -64,7 +64,7 @@ def impressions(dat, kw):
 
     ax[0].bar(dat.Days.values, dat.Rate.values, 1, **kw)
     ax[0].set_ylabel(r'($\heartsuit$' + ' + RT) / TWT', color = 'black')
-    ax[0].patch.set_alpha(0.0)
+    ax[0].patch.set_alpha(0.25)
     for t in ax[0].get_xticklabels():
         t.set_fontsize(8)
     for t in ax[0].get_yticklabels():
@@ -77,7 +77,7 @@ def impressions(dat, kw):
     ax[0].grid(color = 'black', alpha = 0.25)
     ylim = ax[0].get_ylim()
 
-    y = sci.stats.gaussian_kde(dat[df.TWT > 0].Rate.values, bw_method = 0.1)
+    y = sci.stats.gaussian_kde(dat[dat.TWT > 0].Rate.values, bw_method = 0.1)
     x = np.linspace(ylim[0], ylim[1], np.round((ylim[1] - ylim[0]) / 0.05))
     z = y.evaluate(x)
 
@@ -91,17 +91,17 @@ def impressions(dat, kw):
 
     ax[1].fill_between(x, z * 100., 0, edgecolor = 'none', facecolor = 'green')
     ax[1].set_xlim(0, ylim[1])
-    ax[1].set_ylim((0, 15))
+    ax[1].set_ylim((0, 20))
     ax[1].set_xlabel('Impressions', color = 'k')
     ax[1].set_ylabel('Frequency', color = 'k')
-    ax[1].patch.set_alpha(0.0)
+    ax[1].patch.set_alpha(0.25)
     ax[1].set_position((0.125, 0.1, 0.775, 0.35))
     for t in ax[1].get_xticklabels():
         t.set_fontsize(8)
     for t in ax[1].get_yticklabels():
         t.set_fontsize(8)
 
-    fig.patch.set_alpha(0.0)
+    fig.patch.set_alpha(0.25)
     plt.savefig('images/Hashtag_Impressions.png', dpi = 300)
     plt.clf()
     plt.close()
@@ -122,7 +122,7 @@ def weekly_tweets(dat, kw):
         kw['alpha'] = 1
         ax[i].bar(x, dat[columns[i]].values, 1, **kw)
         ax[i].set_ylabel(labels[i])
-        ax[i].patch.set_alpha(0.0)
+        ax[i].patch.set_alpha(0.25)
         ax[i].set_xticks(x)
         ax[i].set_ylim(0, max(m[columns[i]], d[columns[i]]) + 5)
         # ax[i].text(39.25, m[columns[i]] / 2, str(df.loc['2018-11-07'][columns[i]].astype(int)),
@@ -140,7 +140,7 @@ def weekly_tweets(dat, kw):
             major.set_visible(False)
 
     ax[0].set_title('#' + cf['CONF']['hashtag'], color = 'black')
-    fig.patch.set_alpha(0.0)
+    fig.patch.set_alpha(0.25)
     plt.savefig('images/Hashtag_Weekly.png', dpi = 300)
     plt.clf()
     plt.close()
@@ -180,9 +180,9 @@ def targets(dat):
             t.set_fontsize(8)
         for t in ax[j, k].get_yticklabels():
             t.set_fontsize(8)
-        ax[j, k].patch.set_alpha(0)
+        ax[j, k].patch.set_alpha(0.25)
         ax[j, k].grid()
-    fig.patch.set_alpha(0)
+    fig.patch.set_alpha(0.25)
     plt.savefig('images/Hashtag_Impact.png', dpi = 300)
     plt.clf()
     plt.close()

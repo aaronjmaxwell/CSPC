@@ -8,16 +8,17 @@ from scipy import stats
 
 from cleaner import cleaner
 dater = {1: 'Jan', 2: 'Feb', 3: 'Mar', 4: 'Apr', 5: 'May', 6: 'Jun', 7: 'Jul', 8: 'Aug', 9: 'Sep',
-    10: 'Oct', 11: 'Nov', 12: 'Dec'}
+         10: 'Oct', 11: 'Nov', 12: 'Dec'}
 
 cf = configparser.ConfigParser()
 cf.read('cspc.ini')
 
 kwarg = dict(color = '', edgecolor = 'none')
 
-def PlotTweets(cax, x, y, kwarg, label):
+
+def tweets(cax, x, y, kw, label):
     """Plot the raw data with an optional interpolated line."""
-    cax.bar(x, y, np.append(np.diff(x), 1), **kwarg)
+    cax.bar(x, y, np.append(np.diff(x), 1), **kw)
 
     cax.set_ylabel(label)
     cax.patch.set_alpha(0.0)
@@ -27,17 +28,17 @@ def PlotTweets(cax, x, y, kwarg, label):
         t.set_fontsize(8)
 
 
-def Feed(df, kwarg, colors, keys, labels, name):
+def feed(data, kw, col, key, lab, name):
     fig, ax = plt.subplots(2, 2, figsize = (8, 5), sharex = True)
-    
+
     for i in range(4):
-        kwarg['color'] = colors[i]
-        PlotTweets(ax[i // 2, i % 2], df.Days, df[keys[i]], kwarg, labels[i])
-    
+        kw['color'] = col[i]
+        tweets(ax[i // 2, i % 2], data.Days, data[key[i]], kw, lab[i])
+
     #ax[2].text(227, 220, '#CSPC2017', fontsize = 6, rotation = 90)
     xt = ax[1, 0].get_xticks()
     xl = [t if isinstance(t, str) else dater[t.month] + ' ' + str(t.day) for t in [
-        df.index[int(t)].date() if ((t >= 0) and (t <= (len(df) - 1))) else '' for t in xt]]
+        df.index[int(t)].date() if ((t >= 0) and (t <= (len(data) - 1))) else '' for t in xt]]
 
     for i in range(2):
         ax[1, i].set_xticklabels(xl)
@@ -49,48 +50,49 @@ def Feed(df, kwarg, colors, keys, labels, name):
         for t in ax[1, i].get_yticklabels():
             t.set_fontsize(8)
 
-    fig.patch.set_alpha(0)
+    fig.patch.set_alpha(0.25)
     plt.savefig(name, dpi = 300)
     plt.clf()
     plt.close()
 
 
-def Engagements(df, F=None):
-    C = ['Likes', 'Retweets', 'Details', 'URL', 'Media', 'Profile', 'Other']
+def engagements(data, f = None):
+    col = ['Likes', 'Retweets', 'Details', 'URL', 'Media', 'Profile', 'Other']
     c = ['red', 'blue', 'green', 'goldenrod', 'cyan', 'magenta', 'black']
     kw = dict(width = 0.8, align = 'edge', lw = 0)
 
-    if F is not None:
-        if not isinstance(F, int):
-            raise TypeError('F must be an `int`')
+    if f is not None:
+        if not isinstance(f, int):
+            raise TypeError('f must be an `int`')
 
-        df = df.resample(str(F) + 'D').sum()
-        kw['width'] += F - 1
-        df.Days = (df.index - df.index.values[0]).days
+        data = data.resample(str(f) + 'D').sum()
+        kw['width'] += f - 1
+        data.Days = (data.index - data.index.values[0]).days
     else:
-        F = 1
+        f = 1
 
-    df['Other'] = df[['Replies', 'Follows', 'Hashtag']].sum(axis = 1)
+    data['Other'] = data[['Replies', 'Follows', 'Hashtag']].sum(axis = 1)
 
     fig, ax = plt.subplots(2, figsize = (8, 5))
-    b, B = np.zeros(len(df)), np.zeros(len(df))
+    p, q = np.zeros(len(data)), np.zeros(len(data))
 
-    for i in range(len(C)):
-        y = df[C[i]].values
-        Y = np.zeros(len(y))
-        idx = np.where(df.Engagements.values > 0)
-        Y[idx] = y[idx] / df.Engagements.values[idx]
-        ax[0].bar(df.Days.values, y, bottom = b, color = c[i], label = C[i], **kw)
-        ax[1].bar(df.Days.values, Y, bottom = B, color = c[i], label = C[i], **kw)
+    for i in range(len(col)):
+        y = data[col[i]].values
+        z = np.zeros(len(y))
+        idx = np.where(data.Engagements.values > 0)
+        z[idx] = y[idx] / data.Engagements.values[idx]
+        ax[0].bar(data.Days.values, y, bottom = p, color = c[i], label = col[i], **kw)
+        ax[1].bar(data.Days.values, z, bottom = q, color = c[i], label = col[i], **kw)
 
-        b += y
-        B += Y
+        p += y
+        q += z
 
-    ax[0].set_xlim(0, F * len(df))
-    ax[1].set_xlim(0, F * len(df))
+    ax[0].set_xlim(0, f * len(data))
+    ax[1].set_xlim(0, f * len(data))
     ax[1].set_ylim(0, 1)
     xt = ax[0].get_xticks()
-    xl = [dater[t.month] + ' ' + str(t.day) for t in [df.iloc[int(t // F)].name.date() for t in xt if (t <= F * (len(df) - 1))]]
+    xl = [dater[t.month] + ' ' + str(t.day) for t in [df.iloc[int(t // f)].name.date() for t in xt
+                                                      if (t <= f * (len(data) - 1))]]
 
     ax[0].tick_params(axis = 'x', which = 'both', bottom = 'off', labelbottom = 'off')
     ax[1].set_xticklabels(xl)
@@ -107,37 +109,37 @@ def Engagements(df, F=None):
             t.set_fontsize(8)
         for t in ax[i].get_yticklabels():
             t.set_fontsize(8)
-        ax[i].patch.set_alpha(0)
+        ax[i].patch.set_alpha(0.25)
 
     ax[0].set_position((0.1, 0.45, 0.85, 0.5))
     ax[1].set_position((0.1, 0.1, 0.85, 0.345))
 
-    fig.patch.set_alpha(0)
+    fig.patch.set_alpha(0.25)
     plt.savefig('images/Feed_Engagements.png', dpi = 300)
     plt.clf()
     plt.close()
 
 
-def Impressions(df, kwarg):
+def impressions(data, kw):
     """Plot impression rate."""
     fig, ax = plt.subplots(2, 1, figsize = (8, 5))
-    kwarg['color'] = 'black'
+    kw['color'] = 'black'
 
-    PlotTweets(ax[0], df.Days, df.Rate, kwarg, 'Impression Rate')
+    tweets(ax[0], data.Days, data.Rate, kw, 'Impression Rate')
     #ax[0].text(227, 4, '#CSPC2017', fontsize = 6, rotation = 90)
     ax[0].grid(color = 'black', alpha = 0.25)
     xlim = ax[0].get_xlim()
     ylim = ax[0].get_ylim()
-    Y = stats.gaussian_kde(df.Rate.values, bw_method = 0.1)
-    X = np.linspace(ylim[0], ylim[1], np.around((ylim[1] - ylim[0]) / 0.01))
-    Z = Y.evaluate(X)
-    Z = Z / Z.max()
+    y = stats.gaussian_kde(data[data.Tweet > 0].Rate.values, bw_method = 0.1)
+    x = np.linspace(ylim[0], ylim[1], np.around((ylim[1] - ylim[0]) / 0.01))
+    z = y.evaluate(x)
+    z = z / z.max()
     kw = dict(edgecolor = 'none', facecolor = 'green')
     ax[0].set_xlim(xlim)
     ax[0].set_ylim(0, max(ylim))
     xt = ax[0].get_xticks()
     xl = [t if isinstance(t, str) else dater[t.month] + ' ' + str(t.day) for t in [
-        df.index[int(t)].date() if ((t >= 0) and (t <= (len(df) - 1))) else '' for t in xt]]
+        df.index[int(t)].date() if ((t >= 0) and (t <= (len(data) - 1))) else '' for t in xt]]
     ax[0].set_xticklabels(xl)
     ax[0].set_title('@sciencepolicy')
     ax[0].set_ylabel('Impression Rate (%)')
@@ -146,7 +148,7 @@ def Impressions(df, kwarg):
     for t in ax[0].get_yticklabels():
         t.set_fontsize(8)
 
-    ax[1].fill_between(X, Z * 100., 0, **kw)
+    ax[1].fill_between(x, z * 100., 0, **kw)
     ax[1].set_xlim(0, ylim[1])
     ax[1].set_ylim((0, 105))
     ax[1].set_xlabel('Impression Rate (%)')
@@ -157,29 +159,29 @@ def Impressions(df, kwarg):
     for t in ax[1].get_yticklabels():
         t.set_fontsize(8)
 
-    ax[0].patch.set_alpha(0)
-    ax[1].patch.set_alpha(0)
-    fig.patch.set_alpha(0)
+    ax[0].patch.set_alpha(0.25)
+    ax[1].patch.set_alpha(0.25)
+    fig.patch.set_alpha(0.25)
     plt.savefig('images/Feed_Impressions.png', dpi = 300)
     plt.clf()
     plt.close()
 
 
-def WeeklyTweets(df, kwarg):
+def weekly(data, kw):
     fig, ax = plt.subplots(3, 1, figsize = (8, 5), sharex = True)
-    colors = ['black', 'red', 'blue']
-    columns = ['TWT', 'F', 'RT']
-    labels = ['TWT', r'$\heartsuit$', 'RT']
+    c = ['black', 'red', 'blue']
+    col = ['TWT', 'F', 'RT']
+    lab = ['TWT', r'$\heartsuit$', 'RT']
     x = sp.arange(len(df))
     for i in range(3):
-        kwarg['facecolor'] = colors[i]
-        kwarg['alpha'] = 0.6
-        ax[i].bar(x, df[columns[i]].values, 1, **kwarg)
-        kwarg['facecolor'] = 'none'
-        kwarg['alpha'] = 1
-        ax[i].bar(x, df[columns[i]].values, 1, **kwarg)
-        ax[i].set_ylabel(labels[i])
-        ax[i].patch.set_alpha(0.0)
+        kw['facecolor'] = c[i]
+        kw['alpha'] = 0.6
+        ax[i].bar(x, df[col[i]].values, 1, **kw)
+        kw['facecolor'] = 'none'
+        kw['alpha'] = 1
+        ax[i].bar(x, df[col[i]].values, 1, **kw)
+        ax[i].set_ylabel(lab[i])
+        ax[i].patch.set_alpha(0.25)
         ax[i].set_xticks(x)
         for t in ax[i].get_xticklabels():
             t.set_fontsize(8)
@@ -189,17 +191,18 @@ def WeeklyTweets(df, kwarg):
     #ax[2].text(32.25, 600, '#CSPC2017', fontsize = 6, rotation = 90)
 
     ax[2].xaxis.set_tick_params(pad = -1)
-    ax[2].set_xticklabels([str(d.date())[5:] for d in df.index], fontsize = 6, rotation = 40)
+    ax[2].set_xticklabels([str(d.date())[5:] for d in data.index], fontsize = 6, rotation = 40)
 
     for i in range(3):
         for major in ax[i].xaxis.get_majorticklines():
             major.set_visible(False)
 
     ax[0].set_title('#' + cf['INFO']['hashtag'], color = 'black')
-    fig.patch.set_alpha(0.0)
+    fig.patch.set_alpha(0.25)
     plt.savefig('images/Feed_Weekly.png', dpi = 300)
     plt.clf()
     plt.close()
+
 
 if __name__ == "__main__":
     df = pd.read_csv('data/activity.csv')
@@ -216,17 +219,17 @@ if __name__ == "__main__":
     colors = ['slateblue', 'r', 'b', 'g']
     keys = ['Tweet', 'Likes', 'Retweets', 'Details']
     labels = ['Tweets', r'$\heartsuit$', 'Retweets', 'Detail Expands']
-    Feed(df, kwarg, colors, keys, labels, 'images/Feed_Activity.png')
-    
+    feed(df, kwarg, colors, keys, labels, 'images/Feed_Activity.png')
+
     colors = ['c', 'm', 'y', 'k']
     keys = ['Profile', 'URL', 'Hashtag', 'Media']
     labels = ['Clicks: ' + k for k in keys]
-    Feed(df, kwarg, colors, keys, labels, 'images/Feed_Clicks.png')
-    Impressions(df, kwarg)
-    Engagements(df, F = 4)
+    feed(df, kwarg, colors, keys, labels, 'images/Feed_Clicks.png')
+    impressions(df, kwarg)
+    engagements(df, f=4)
 
     # Grouping into weeks
     #df.drop(['Days'], axis = 1, inplace = True)
     #df = df.groupby(pd.Grouper(freq = '7D')).sum()
     #kwarg = dict(facecolor = '', edgecolor = 'cyan', linewidth = 1, align = 'edge', alpha = 1)
-    #WeeklyTweets(df, kwarg)
+    #weekly(df, kwarg)
