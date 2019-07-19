@@ -1,13 +1,13 @@
 #!/bin/bash
-file=tweet_activity_metrics_sciencepolicy_20190705_20190712_en.csv
+file=tweet_activity_metrics_sciencepolicy_20190712_20190719_en.csv
 
 echo "hashtag"
 python3 code/hashtag.py
 awk '{a[i++]=$0} END {for (j=i-1; j>=0;) print a[j--] }' stream.out | sed 's/\//,/g' | sed 's/:/,/g' | sed 's/ /,/g' >> data/hashtag.csv
 
-#echo "promotion"
-#python3 code/promotion.py
-#awk '{a[i++]=$0} END {for (j=i-1; j>=0;) print a[j--] }' panelstream.out | sed 's/\//,/g' | sed     's/:/,/g' | sed 's/ /,/g' | sed "s/(/'(/g" | sed "s/,)/)/g" | sed "s/)/)'/g" >> data/promotion.csv
+echo "promotion"
+python3 code/promotion.py
+awk '{a[i++]=$0} END {for (j=i-1; j>=0;) print a[j--] }' panelstream.out | sed 's/\//,/g' | sed     's/:/,/g' | sed 's/ /,/g' | sed "s/(/'(/g" | sed "s/,)/)/g" | sed "s/)/)'/g" >> data/promotion.csv
 
 #echo "SciParl"
 #python3 code/sciparl.py
