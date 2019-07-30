@@ -25,6 +25,17 @@ panel = dict(
     ISSP_uOttawa = "Whose Facts Actually Matter?",
     IOGca = "Whose Facts Actually Matter?",
     Carleton_U = "Why pro-LGBT policies can turn out to be Innovation policies?",
+    EU_ScienceHub = "The Sciences of Human Behaviour",
+    yuliakrolik = "Creating SciComm",
+    pixelsandplans = "Creating SciComm",
+    artthescience = "Creating SciComm",
+    saraheverts = "Fighting the Opioid Crisis",
+    JSchool_CU = "Fighting the Opioid Crisis",
+    CSIP_JSGS = "Risk, Uncertainty, Unknowns, and Nonsense",
+    JSGSPP = "Risk, Uncertainty, Unknowns, and Nonsense",
+    thefathomfund = "Harnessing the Power of the Crowd",
+    MEOPAR_NCE = "Harnessing the Power of the Crowd",
+    TheNeuro_MNI = "Open Science is Transforming the Research Landscape",
 )
 
 # remove having to check for upper and lower case letters, since Twitter is case insensitive.
