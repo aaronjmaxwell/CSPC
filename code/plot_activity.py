@@ -1,9 +1,7 @@
 import configparser
 import numpy as np
 import pandas as pd
-import datetime as dt
 import matplotlib.pyplot as plt
-import matplotlib as mpl
 from scipy import stats
 
 from cleaner import cleaner
@@ -35,7 +33,7 @@ def feed(data, kw, col, key, lab, name):
         kw['color'] = col[i]
         tweets(ax[i // 2, i % 2], data.Days, data[key[i]], kw, lab[i])
 
-    #ax[2].text(227, 220, '#CSPC2017', fontsize = 6, rotation = 90)
+    # ax[2].text(227, 220, '#CSPC2017', fontsize = 6, rotation = 90)
     xt = ax[1, 0].get_xticks()
     xl = [t if isinstance(t, str) else dater[t.month] + ' ' + str(t.day) for t in [
         df.index[int(t)].date() if ((t >= 0) and (t <= (len(data) - 1))) else '' for t in xt]]
@@ -67,7 +65,7 @@ def engagements(data, f = None):
 
         data = data.resample(str(f) + 'D').sum()
         kw['width'] += f - 1
-        data.Days = (data.index - data.index.values[0]).days
+        data.Days = (data.index - data.index[0]).days
     else:
         f = 1
 
@@ -126,7 +124,7 @@ def impressions(data, kw):
     kw['color'] = 'black'
 
     tweets(ax[0], data.Days, data.Rate, kw, 'Impression Rate')
-    #ax[0].text(227, 4, '#CSPC2017', fontsize = 6, rotation = 90)
+    # ax[0].text(227, 4, '#CSPC2017', fontsize = 6, rotation = 90)
     ax[0].grid(color = 'black', alpha = 0.25)
     xlim = ax[0].get_xlim()
     ylim = ax[0].get_ylim()
@@ -172,7 +170,7 @@ def weekly(data, kw):
     c = ['black', 'red', 'blue']
     col = ['TWT', 'F', 'RT']
     lab = ['TWT', r'$\heartsuit$', 'RT']
-    x = sp.arange(len(df))
+    x = np.arange(len(df))
     for i in range(3):
         kw['facecolor'] = c[i]
         kw['alpha'] = 0.6
@@ -188,7 +186,7 @@ def weekly(data, kw):
         for t in ax[i].get_yticklabels():
             t.set_fontsize(8)
 
-    #ax[2].text(32.25, 600, '#CSPC2017', fontsize = 6, rotation = 90)
+    # ax[2].text(32.25, 600, '#CSPC2017', fontsize = 6, rotation = 90)
 
     ax[2].xaxis.set_tick_params(pad = -1)
     ax[2].set_xticklabels([str(d.date())[5:] for d in data.index], fontsize = 6, rotation = 40)
@@ -206,7 +204,7 @@ def weekly(data, kw):
 
 if __name__ == "__main__":
     df = pd.read_csv('data/activity.csv')
-    df['Time'] = pd.to_datetime(df['Time'])
+    df['Time'] = pd.to_datetime(df['Time'], utc = True)
     df.set_index('Time', inplace = True, drop = True)
     df['Tweet'] = 1
     # Sum all occurrences per day, replacing non-entry days with NaN which we fill with 0.0
@@ -214,7 +212,7 @@ if __name__ == "__main__":
     df['Rate'] = df['Engagements'] / df['Impressions'] * 100.
     df.fillna(0.0, inplace = True)
     df['Days'] = (df.index - df.index[0]).days
-    #df = df.loc['2017-03-20':'2017-10-29'].append(df.loc['2017-11-06':])
+    # df = df.loc['2017-03-20':'2017-10-29'].append(df.loc['2017-11-06':])
 
     colors = ['slateblue', 'r', 'b', 'g']
     keys = ['Tweet', 'Likes', 'Retweets', 'Details']
@@ -229,7 +227,7 @@ if __name__ == "__main__":
     engagements(df, f=4)
 
     # Grouping into weeks
-    #df.drop(['Days'], axis = 1, inplace = True)
-    #df = df.groupby(pd.Grouper(freq = '7D')).sum()
-    #kwarg = dict(facecolor = '', edgecolor = 'cyan', linewidth = 1, align = 'edge', alpha = 1)
-    #weekly(df, kwarg)
+    # df.drop(['Days'], axis = 1, inplace = True)
+    # df = df.groupby(pd.Grouper(freq = '7D')).sum()
+    # kwarg = dict(facecolor = '', edgecolor = 'cyan', linewidth = 1, align = 'edge', alpha = 1)
+    # weekly(df, kwarg)
