@@ -1,5 +1,5 @@
 #!/bin/bash
-file=tweet_activity_metrics_sciencepolicy_20190719_20190726_en.csv
+file=tweet_activity_metrics_sciencepolicy_20190726_20190802_en.csv
 
 echo "hashtag"
 python3 code/hashtag.py
@@ -19,5 +19,5 @@ awk '{a[i++]=$0} END {for (j=i-1; j>=0;) print a[j--] }' activity.out >> data/ac
 rm -fv *.out $file
 python3 code/plot_hashtag.py
 python3 code/plot_activity.py
-#python3 code/mentions.py
-#python3 code/communicators.py
+python3 code/mentions.py
+python3 code/communicators.py
