@@ -46,3 +46,11 @@ M,D,Y,h,m,s,pm,F,RT,H1,H2,H3,H4,H5,H6,H7,H8,H9,H10
 08,08,19,01,05,17,PM,0,0,digitalmikmaq,Ulnooweg
 08,08,19,03,02,18,PM,0,0,cpsa_acsp,HSInquiry
 08,08,19,05,45,18,PM,1,1,jcmauduit,SciPolJournal,tgruos
+08,09,19,03,00,26,PM,2,0,UA_magazine
+08,11,19,03,00,19,PM,3,1,CAN_SEBP,cpsa_acsp
+08,12,19,03,00,50,PM,3,1,LifeSciencesON,research_money
+08,13,19,03,01,27,PM,2,0,cshpsnews,CarletonSPPA
+08,13,19,06,25,07,PM,2,0,NIVAInc
+08,14,19,01,30,36,PM,5,1,FACITca
+08,14,19,03,01,50,PM,6,2,InnovationCA
+08,14,19,06,35,09,PM,6,2,MoniqueCrichlow,ComputeOntario,uvicSPA
