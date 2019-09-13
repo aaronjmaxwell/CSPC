@@ -1,82 +1,92 @@
 Handle,Mentions,Panel
+frqs1,5,Partner & Scientists in the Public Space
+sfu,5,Precision Policy & Interdisciplinary Artificial Intelligence
 sshrc_crsh,5,Fishing for Open Science Innovation & Interdisciplinary Artificial Intelligence
-sfu,4,Precision Policy & Interdisciplinary Artificial Intelligence
+nserc_crsng,4,Mapping Dynamic Research Ecosystems & Fishing for Open Science Innovation
 techsploration,3,Community Friends
-nserc_crsng,3,Mapping Dynamic Research Ecosystems & Fishing for Open Science Innovation
 hsinquiry,3,Community Friends
-frqs1,3,Partner & Scientists in the Public Space
+yuliakrolik,2,Creating SciComm & SING'ing Indigenous Technoscience
+scipoljournal,2,What Future for Young Science Policy Practitioners?
+nrc_cnrc,2,AI as an Enabler of Innovative Competitiveness & Convergence Science and Tackling Grand Challenges
+hallenidrc,2,None
+idrc_crdi,2,"Eating Right, Living Better"
+scwist,2,Community Friends
+scichefqc,2,The Public Record
+innovationca,2,None
+saraheverts,2,Fighting the Opioid Crisis
+ryersonu,2,None
+jcmauduit,2,What Future for Young Science Policy Practitioners?
+jschool_cu,2,Fighting the Opioid Crisis
+katiegibbs,2,The Public Record
 admare_bio,2,Partner
 research_money,2,Community Friends
-innovationca,2,None
-scichefqc,2,The Public Record
-idrc_crdi,2,"Eating Right, Living Better"
-hallenidrc,2,None
-scwist,2,Community Friends
-esrc,2,Interdisciplinary Artificial Intelligence
-katiegibbs,2,The Public Record
-can_sebp,2,None
+pspc_spac,2,None
+frq_nt,2,Partner & Diplomatie scientifique
+frqsc,2,Partner & Diplomatie scientifique
 uoft,2,Partner
-cshpsnews,2,None
-carletonsppa,2,Community Friends
 ua_magazine,2,Community Friend
+wikipedia,2,None
+can_sebp,2,None
+water_institute,2,Personhood Rights for Water Bodies
+carletonsppa,2,Community Friends
+esrc,2,Interdisciplinary Artificial Intelligence
 cpsa_acsp,2,None
-pspc_spac,1,None
-robannan,1,The Promise of Science
-researchuoft,1,International Research Collaboration in a Polarized World
-queensu,1,Partner
+nivainc,2,Making Science Communication Happen
+this_is_farah,2,Wikipedia Edit-a-Thons
+cshpsnews,2,None
 theneuro_mni,1,Open Science is Transforming the Research Landscape
-ryersonu,1,None
+tedhsu,1,Evidence in Practice
+oceinnovation,1,None
 pixelsandplans,1,Creating SciComm
-wikipedia,1,None
-nrc_cnrc,1,AI as an Enabler of Innovative Competitiveness & Convergence Science and Tackling Grand Challenges
-nivainc,1,Making Science Communication Happen
-ryersondi,1,Supports for Women Entrepreneurs
-uvicspa,1,Examining the Role of Data Trusts in Smart Cities Governance
-saraheverts,1,Fighting the Opioid Crisis
-water_institute,1,Personhood Rights for Water Bodies
+westernu,1,None
+queensu,1,Partner
+tgruos,1,What Future for Young Science Policy Practitioners?
+researchuoft,1,International Research Collaboration in a Polarized World
 thefathomfund,1,Harnessing the Power of the Crowd
+robannan,1,The Promise of Science
+ualberta,1,None
+rochecanada,1,Bridging the Gap
+uvicspa,1,Examining the Role of Data Trusts in Smart Cities Governance
+rtparkuw,1,None
+ryersondi,1,Supports for Women Entrepreneurs
 ulnooweg,1,None
 ukri_usa,1,Research Without Borders
-scipoljournal,1,What Future for Young Science Policy Practitioners?
 ukri_news,1,Research Without Borders
-msfhr,1,Community Friends
 swissembcanada,1,Science Diplomacy in a Changing Arctic
-this_is_farah,1,Wikipedia Edit-a-Thons
-tedhsu,1,Evidence in Practice
-tgruos,1,What Future for Young Science Policy Practitioners?
-naphro,1,A Winning Formula for Building Regional Innovation Capacity
 ab_enviro,1,The Public Record
-moniquecrichlow,1,Examining the Role of Data Trusts in Smart Cities Governance
-crsh_sshrc,1,Fishing for Open Science Innovation & Interdisciplinary Artificial Intelligence
-environmentca,1,None
+naphro,1,A Winning Formula for Building Regional Innovation Capacity
+msfhr,1,Community Friends
 e4dca,1,Evidence in Practice
 digitalmikmaq,1,Inclusive Innovation Agenda for a new Generation
 cukierwendy,1,Supports for Women Entrepreneurs
 csip_jsgs,1,"Risk, Uncertainty, Unknowns, and Nonsense"
 crsng_nserc,1,Mapping Dynamic Research Ecosystems & Fishing for Open Science Innovation
+crsh_sshrc,1,Fishing for Open Science Innovation & Interdisciplinary Artificial Intelligence
 computeontario,1,Examining the Role of Data Trusts in Smart Cities Governance
-meopar_nce,1,Harnessing the Power of the Crowd
 collegecan,1,A Winning Formula for Building Regional Innovation Capacity
 cns_scn,1,Community Friend
 clopezcorrea,1,The Promise of Science
 cihr_irsc,1,Fishing for Open Science Innovation
 casc_accs,1,None
+carleton_u,1,Why pro-LGBT policies can turn out to be Innovation policies?
+b_momani,1,None
 artthescience,1,Creating SciComm
+environmentca,1,None
 eu_sciencehub,1,The Sciences of Human Behaviour
 facitca,1,Ontario-First in the Innovation Economy
-frq_nt,1,Partner & Diplomatie scientifique
-frqsc,1,Partner & Diplomatie scientifique
-genomecanada,1,Partner
-ingeniumca,1,Empowering Youth Through Self-led and Experiential Learning
-iogca,1,Whose Facts Actually Matter?
-irsc_cihr,1,Fishing for Open Science Innovation
-issp_uottawa,1,Whose Facts Actually Matter?
-ivansemeniuk,1,The Promise of Science
-jcmauduit,1,What Future for Young Science Policy Practitioners?
-jschool_cu,1,Fighting the Opioid Crisis
 jsgspp,1,"Risk, Uncertainty, Unknowns, and Nonsense"
-karenakerlof,1,Evidence in Practice
-kimberlygirling,1,Evidence in Practice
-lifescienceson,1,None
+moniquecrichlow,1,Examining the Role of Data Trusts in Smart Cities Governance
+mikey_pereira,1,None
+meopar_nce,1,Harnessing the Power of the Crowd
 mehrdadhariri,1,None
-yuliakrolik,1,Creating SciComm & SING'ing Indigenous Technoscience
+lifescienceson,1,None
+karenakerlof,1,Evidence in Practice
+jesskolopenuk,1,SING'ing Indigenous Technoscience
+genomecanada,1,Partner
+ivansemeniuk,1,The Promise of Science
+issp_uottawa,1,Whose Facts Actually Matter?
+irsc_cihr,1,Fishing for Open Science Innovation
+iogca,1,Whose Facts Actually Matter?
+ingeniumca,1,Empowering Youth Through Self-led and Experiential Learning
+indigenous_sts,1,SING'ing Indigenous Technoscience
+kimberlygirling,1,Evidence in Practice

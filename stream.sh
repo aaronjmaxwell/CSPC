@@ -1,5 +1,5 @@
 #!/bin/bash
-file=tweet_activity_metrics_sciencepolicy_20190816_20190906_en.csv
+file=tweet_activity_metrics_sciencepolicy_20190906_20190913_en.csv
 
 echo "hashtag"
 python3 code/hashtag.py
