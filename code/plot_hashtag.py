@@ -86,6 +86,7 @@ def impressions(dat):
 
     # Impression Rate
     ax[0].grid(color = colors['gold'], alpha = 0.25)
+    ax[1].grid(color = colors['gold'], alpha = 0.25)
 
     y = sci.stats.gaussian_kde(dat[dat.TWT > 0].Rate.values, bw_method = 0.1)
     x = np.linspace(0, 25, np.round(25 / 0.05))
@@ -101,7 +102,8 @@ def impressions(dat):
 
     ax[1].fill_between(x, z * 100., 0, edgecolor = 'none', facecolor = colors['green'])
     ax[1].set_xlim(0, 25.0)
-    ax[1].set_ylim((0, 18))
+    ax[1].set_ylim((0, 20))
+    ax[1].set_yticks([4 * i for i in range(6)])
     ax[1].set_xlabel('Impressions', color = colors['black'])
     ax[1].set_ylabel('Frequency', color = colors['black'])
     ax[1].patch.set_alpha(0.25)
@@ -125,10 +127,10 @@ def weekly_tweets(dat):
     x = np.arange(len(dat))
     m, d = dat.loc[:'2019-11-12'].max(), dat.loc['2018-11-16':].max()
 
-    ax[0].set_ylim(0, 35)
-    ax[0].set_yticks([i * 5 for i in range(8)])
-    ax[1].set_ylim(0, 150)
-    ax[1].set_yticks([i * 25 for i in range(7)])
+    ax[0].set_ylim(0, 40)
+    ax[0].set_yticks([i * 5 for i in range(9)])
+    ax[1].set_ylim(0, 125)
+    ax[1].set_yticks([i * 25 for i in range(6)])
     ax[2].set_ylim(0, 40)
     ax[2].set_yticks([i * 5 for i in range(9)])
     kw = dict(facecolor = '', edgecolor = colors['teal'], linewidth = 1, align = 'edge')
@@ -179,9 +181,9 @@ def targets(dat):
     c = ['F', 'RT', 'Imp', 'Rate']
     l = ['Likes', 'Retweets', 'Total', 'Rate']
     # yl = [350, 125, 450, 12]
-    yl = [100, 50, 100, 12]
-    label = r'm: {:.2f} $\pm$ {:.2f}, $\sigma$: {:.2f}, $R^2$: {:.2f}'
-    altlabel = r'm: {:.2f} $\pm$ {:.2f}, $\sigma$: {:.2f}, $b$ {:.2f}, $\mu$: {:.2f} $\pm$ {:.2f}'
+    yl = [125, 40, 160, 12]
+    label = r'm: {:.2f} $\pm$ {:.2f}'+'\n'+r'$\sigma$: {:.2f}, $R^2$: {:.2f}'
+    alt=r'm: {:.2f} $\pm$ {:.2f}, $\sigma$: {:.2f}'+'\n'+r'$b$ {:.2f}, $\mu$: {:.2f} $\pm$ {:.2f}'
 
     for i in range(4):
         j, k = i // 2, i % 2
@@ -193,14 +195,14 @@ def targets(dat):
         if (i < 3):
             ax[j, k].plot(x, y_hat, label = label.format(m, s, std, r), color = colors['red'])
         else:
-            ax[j, k].plot(x, y_hat, label = altlabel.format(m, s, std, b, y.mean(), y.std()),
+            ax[j, k].plot(x, y_hat, label = alt.format(m, s, std, b, y.mean(), y.std()),
                           color = colors['red'])
 
         ax[j, k].legend(fontsize = 6)
 
-        ax[j, k].set_xlim(0, 20)
+        ax[j, k].set_xlim(0, 35)
         ax[j, k].set_ylim(0, yl[i])
-        ax[j, k].set_xticks([2 * i for i in range(10)])
+        ax[j, k].set_xticks([5 * i for i in range(8)])
         if j == 1:
             ax[j, k].set_xlabel('Tweets', color = colors['black'])
         ax[j, k].set_ylabel(l[i])
@@ -210,6 +212,9 @@ def targets(dat):
             t.set_fontsize(8)
         ax[j, k].patch.set_alpha(0.25)
         ax[j, k].grid(color = colors['gold'])
+    ax[0, 0].text(27, 130, 'Weekly #' + cf['CONF']['hashtag'] + ' Usage', fontdict
+                  = {'fontsize': 10, 'fontweight': 300, 'verticalalignment': 'bottom'},
+                  color = colors['black'])
     fig.patch.set_alpha(0.25)
     plt.savefig('images/Hashtag_Impact.png', dpi = 300)
     plt.clf()
@@ -240,10 +245,10 @@ if __name__ == "__main__":
     df['Rate'] = df.Imp / df.TWT
     df.fillna(0.0, inplace = True)
     weekly_tweets(df)
+    targets(df)
     print(df.tail())
     print('Max\n---')
     print('Likes:', df.F.max())
     print('Retweets:', df.RT.max())
     print('Total:', df.Imp.max())
     print('Rate:', df.Rate.max())
-    targets(df)
