@@ -89,7 +89,7 @@ def impressions(dat):
     ax[1].grid(color = colors['gold'], alpha = 0.25)
 
     y = sci.stats.gaussian_kde(dat[dat.TWT > 0].Rate.values, bw_method = 0.1)
-    x = np.linspace(0, 25, np.round(25 / 0.05))
+    x = np.linspace(0, 25, np.round(25 / 0.05).astype(np.int))
     z = y.evaluate(x)
 
     xt = ax[0].get_xticks()
@@ -233,7 +233,7 @@ if __name__ == "__main__":
     df['Rate'] = df.Imp / df.TWT
     df.fillna(0.0, inplace = True)
     df['Days'] = (df.index - df.index[0]).days
-    # df = df.loc['2017-03-20':'2017-10-29'].append(df.loc['2017-11-06':])
+    df = df.loc['2019-01-01':'2019-11-07'].append(df.loc['2019-11-16':])
     # Tweets
     tweets(df)
     # Impression Rate

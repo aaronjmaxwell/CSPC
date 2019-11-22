@@ -148,7 +148,7 @@ def impressions(data):
     xlim = ax[0].get_xlim()
     ylim = ax[0].get_ylim()
     y = stats.gaussian_kde(data[data.Tweet > 0].Rate.values, bw_method = 0.1)
-    x = np.linspace(ylim[0], ylim[1], np.around((ylim[1] - ylim[0]) / 0.01))
+    x = np.linspace(ylim[0], ylim[1], np.around((ylim[1] - ylim[0]) / 0.01).astype(np.int))
     z = y.evaluate(x)
     z = z / z.max()
     kw = dict(edgecolor = 'none', facecolor = 'green')
@@ -231,7 +231,7 @@ if __name__ == "__main__":
     df['Rate'] = df['Engagements'] / df['Impressions'] * 100.
     df.fillna(0.0, inplace = True)
     df['Days'] = (df.index - df.index[0]).days
-    # df = df.loc['2017-03-20':'2017-10-29'].append(df.loc['2017-11-06':])
+    df = df.loc['2019-01-01':'2019-11-07'].append(df.loc['2019-11-16':])
 
     keys, labels = ['Likes', 'Retweets'], [r'$\heartsuit$', 'Retweets']
     feed(df, keys, labels, 'images/Feed_Activity.png')
