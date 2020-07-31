@@ -295,3 +295,13 @@ M,D,Y,h,m,s,pm,handle,F,RT,O,E
 07,23,20,12,48,44,AM,makepossible_ca,0,2,False,SCWIST
 07,23,20,12,02,05,PM,sciencepolicy,4,1,True,
 07,23,20,04,28,08,PM,ScienceIdaho,0,1,False,sciencepolicy
+07,25,20,05,34,23,PM,FleerackersA,5,0,True,
+07,28,20,01,22,50,PM,ideas_idees,1,0,True,
+07,28,20,07,42,03,PM,SCWIST,4,1,True,
+07,28,20,08,26,27,PM,makepossible_ca,0,1,False,SCWIST
+07,29,20,01,55,07,PM,CNS_SCN,2,2,True,
+07,29,20,02,16,51,PM,CarletonSPPA,0,7,False,sciencepolicy
+07,29,20,02,17,10,PM,B_Gheller,0,2,False,CNS_SCN
+07,29,20,07,06,56,PM,WendelynJones,0,2,False,CNS_SCN
+07,30,20,12,00,56,PM,sciencepolicy,2,0,True,
+07,30,20,02,55,09,PM,CNS_SCN,1,0,True,
