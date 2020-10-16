@@ -1,0 +1,815 @@
+{
+ "1loriking": {
+  "cspc": 1
+ },
+ "aaas_stpf": {
+  "cspc": 1
+ },
+ "aalbinati": {
+  "cspc": 5
+ },
+ "adeniyiasiyanbi": {
+  "cspc": 1
+ },
+ "adrianabankston": {
+  "cspc": 1,
+  "external": 1
+ },
+ "alexgelle": {
+  "cspc": 1,
+  "external": 1
+ },
+ "amandag_phd": {
+  "cspc": 1
+ },
+ "andydonovan64": {
+  "cspc": 1
+ },
+ "anjanagrajan": {
+  "cspc": 1
+ },
+ "annahscientist": {
+  "cspc": 1
+ },
+ "antonholland": {
+  "cspc": 1
+ },
+ "arcticnet": {
+  "cspc": 1
+ },
+ "argelav": {
+  "external": 1
+ },
+ "armeladi": {
+  "cspc": 1
+ },
+ "bio_qc": {
+  "cspc": 1
+ },
+ "bmschmidt": {
+  "cspc": 1
+ },
+ "b_gheller": {
+  "external": 1
+ },
+ "beartrust": {
+  "cspc": 1
+ },
+ "bigdataconda": {
+  "cspc": 1
+ },
+ "bioalberta": {
+  "cspc": 1
+ },
+ "borskikay": {
+  "cspc": 1
+ },
+ "can_acn": {
+  "cspc": 1
+ },
+ "can_sebp": {
+  "cspc": 1
+ },
+ "caphys": {
+  "cspc": 1
+ },
+ "casc_accs": {
+  "cspc": 2
+ },
+ "cifar_news": {
+  "cspc": 1
+ },
+ "cns_scn": {
+  "cspc": 3
+ },
+ "cokiproject": {
+  "cspc": 1
+ },
+ "covid_19_canada": {
+  "cspc": 1
+ },
+ "crdcn": {
+  "cspc": 1
+ },
+ "crsh_sshrc": {
+  "cspc": 3
+ },
+ "crsng_nserc": {
+  "cspc": 2
+ },
+ "csee_scee": {
+  "cspc": 1
+ },
+ "csmb_scbm": {
+  "cspc": 1
+ },
+ "csmb_trainees": {
+  "cspc": 2
+ },
+ "cstachulak": {
+  "cspc": 3,
+  "external": 1
+ },
+ "cuawards2": {
+  "external": 1
+ },
+ "canadianpaworld": {
+  "cspc": 3
+ },
+ "carletonsppa": {
+  "cspc": 4
+ },
+ "cathynielsen13": {
+  "external": 1
+ },
+ "cemmam": {
+  "cspc": 1
+ },
+ "chevaucheriee": {
+  "external": 1
+ },
+ "chiefscican": {
+  "cspc": 1
+ },
+ "collegecan": {
+  "cspc": 2
+ },
+ "comsciconcan": {
+  "cspc": 1
+ },
+ "crepidulatrix": {
+  "cspc": 1
+ },
+ "cybersecurityn8": {
+  "cspc": 1
+ },
+ "dnaed_tech": {
+  "external": 1
+ },
+ "dsp_spe": {
+  "cspc": 21,
+  "external": 2
+ },
+ "danielsgregoire": {
+  "cspc": 1
+ },
+ "denovo_fatima": {
+  "cspc": 1
+ },
+ "dom_robert7": {
+  "cspc": 1
+ },
+ "drlouisemoyle": {
+  "cspc": 1
+ },
+ "dr_anjanaagri1": {
+  "cspc": 1
+ },
+ "eiui_dal": {
+  "cspc": 1
+ },
+ "esal_us": {
+  "cspc": 1
+ },
+ "ednamattac": {
+  "cspc": 29,
+  "external": 3
+ },
+ "elhanrn": {
+  "cspc": 1
+ },
+ "fpacarleton": {
+  "cspc": 3
+ },
+ "gcmccauley": {
+  "cspc": 1
+ },
+ "glescord": {
+  "cspc": 1
+ },
+ "genomebc": {
+  "external": 1
+ },
+ "genomecanada": {
+  "cspc": 5,
+  "external": 1
+ },
+ "hamed__bz": {
+  "cspc": 1
+ },
+ "hansstartup": {
+  "external": 2
+ },
+ "idrc_crdi": {
+  "cspc": 3
+ },
+ "issp_uottawa": {
+  "cspc": 1
+ },
+ "innovationca": {
+  "cspc": 5
+ },
+ "innovationnow_": {
+  "cspc": 1
+ },
+ "jatetro": {
+  "cspc": 1
+ },
+ "janmarcoscience": {
+  "external": 1
+ },
+ "janicebailey6": {
+  "cspc": 2
+ },
+ "johnstonpari": {
+  "cspc": 1
+ },
+ "kravisrinivas": {
+  "external": 1
+ },
+ "karenkidd12": {
+  "cspc": 2
+ },
+ "kathrynamay": {
+  "cspc": 1
+ },
+ "kawtherbelushi": {
+  "cspc": 1
+ },
+ "kozlovandy": {
+  "cspc": 1
+ },
+ "kristinbourassa": {
+  "cspc": 1
+ },
+ "lakeheadrsrch": {
+  "cspc": 1
+ },
+ "laurierwins": {
+  "cspc": 1
+ },
+ "lifescienceson": {
+  "cspc": 2
+ },
+ "louisedawe": {
+  "cspc": 1
+ },
+ "luzrocorredor": {
+  "cspc": 2,
+  "external": 1
+ },
+ "lyracygnus": {
+  "external": 1
+ },
+ "marcsaner": {
+  "cspc": 1
+ },
+ "marc_t_avey": {
+  "cspc": 1
+ },
+ "mariannemader": {
+  "cspc": 1
+ },
+ "mattmctaggart": {
+  "cspc": 4
+ },
+ "mcgill_spgh": {
+  "cspc": 1
+ },
+ "mehrdadhariri": {
+  "cspc": 2
+ },
+ "mindarchitext": {
+  "cspc": 3
+ },
+ "monicagattinger": {
+  "external": 3
+ },
+ "moriartylab": {
+  "cspc": 1
+ },
+ "nekandzi": {
+  "external": 1
+ },
+ "nivainc": {
+  "cspc": 1
+ },
+ "nrc_cnrc": {
+  "cspc": 1
+ },
+ "nserc_crsng": {
+  "cspc": 12
+ },
+ "nightingale_p": {
+  "cspc": 1
+ },
+ "nioushahn": {
+  "external": 1
+ },
+ "nosinmujeresp": {
+  "cspc": 1
+ },
+ "ostaustria_dc": {
+  "external": 1
+ },
+ "officeoccupier": {
+  "external": 1
+ },
+ "openscitalk": {
+  "cspc": 5
+ },
+ "pipsc_wis": {
+  "external": 1
+ },
+ "paulawoodadams": {
+  "external": 1
+ },
+ "philippbrugner": {
+  "external": 1
+ },
+ "platformm3": {
+  "cspc": 1
+ },
+ "rorinstitute": {
+  "cspc": 1
+ },
+ "rossfitzs": {
+  "cspc": 1
+ },
+ "s4d4c": {
+  "cspc": 2,
+  "external": 1
+ },
+ "shenery2": {
+  "external": 1
+ },
+ "sshrc_crsh": {
+  "cspc": 8
+ },
+ "ssxman2": {
+  "cspc": 1
+ },
+ "stem_fellowship": {
+  "external": 1
+ },
+ "sabrinabedjera": {
+  "cspc": 3
+ },
+ "sciofmaritimes": {
+  "cspc": 1
+ },
+ "scipoljournal": {
+  "cspc": 7
+ },
+ "scipolpack": {
+  "cspc": 1
+ },
+ "scicommb": {
+  "cspc": 4
+ },
+ "scicommbot": {
+  "cspc": 1
+ },
+ "scienceborealis": {
+  "cspc": 20,
+  "external": 1
+ },
+ "scienceidaho": {
+  "cspc": 4
+ },
+ "scienceinsider": {
+  "cspc": 2
+ },
+ "shawnmcguirk": {
+  "cspc": 2
+ },
+ "sheehancyn": {
+  "cspc": 1
+ },
+ "shwetaganapati": {
+  "cspc": 3,
+  "external": 1
+ },
+ "sloboda_lab": {
+  "cspc": 1
+ },
+ "stephenpinfield": {
+  "cspc": 1
+ },
+ "suryasree_1": {
+  "cspc": 1
+ },
+ "toscipolicynet": {
+  "cspc": 3,
+  "external": 1
+ },
+ "tammyjclifford": {
+  "cspc": 1
+ },
+ "techsploration": {
+  "cspc": 5
+ },
+ "thebariatricrd": {
+  "external": 1
+ },
+ "thomasclone_us": {
+  "cspc": 1
+ },
+ "tradeon": {
+  "cspc": 1
+ },
+ "unbcresearch": {
+  "cspc": 1
+ },
+ "utscresearch": {
+  "cspc": 1
+ },
+ "uoftprime": {
+  "cspc": 1
+ },
+ "vervloetcarlos": {
+  "cspc": 2
+ },
+ "wcagirlguides": {
+  "external": 1
+ },
+ "wcs_canada": {
+  "cspc": 2
+ },
+ "wpggirlguides": {
+  "external": 1
+ },
+ "wendelynjones": {
+  "external": 1
+ },
+ "willaamos": {
+  "cspc": 1
+ },
+ "williamgaieck": {
+  "cspc": 1
+ },
+ "yanevaldezt": {
+  "cspc": 16,
+  "external": 2
+ },
+ "youenpoint": {
+  "cspc": 1
+ },
+ "yukonuie": {
+  "external": 1
+ },
+ "_acfas": {
+  "external": 2
+ },
+ "_dorischow": {
+  "cspc": 1
+ },
+ "_elke_d_": {
+  "external": 1
+ },
+ "_open_science_": {
+  "cspc": 3
+ },
+ "admare_bio": {
+  "cspc": 1
+ },
+ "airplaneavocado": {
+  "cspc": 4
+ },
+ "airving10": {
+  "cspc": 1
+ },
+ "alberts_ronel": {
+  "external": 2
+ },
+ "alejandroadem": {
+  "cspc": 3
+ },
+ "alesszimm": {
+  "cspc": 1
+ },
+ "alicetsp": {
+  "cspc": 1
+ },
+ "amymifflinsills": {
+  "external": 1
+ },
+ "annastukas": {
+  "external": 1
+ },
+ "ashleymilbury": {
+  "external": 1
+ },
+ "brooks_1": {
+  "cspc": 1
+ },
+ "cassbayley": {
+  "external": 1
+ },
+ "catherinemah": {
+  "cspc": 1
+ },
+ "cca_reports": {
+  "cspc": 7
+ },
+ "cdnsciencepub": {
+  "cspc": 2
+ },
+ "centre_seve": {
+  "cspc": 1
+ },
+ "chaudr8": {
+  "cspc": 1
+ },
+ "cpsa_acsp": {
+  "cspc": 3
+ },
+ "danielsp": {
+  "external": 1
+ },
+ "davidhoule_fr": {
+  "external": 1
+ },
+ "dawnbazely": {
+  "cspc": 1
+ },
+ "decker_je": {
+  "cspc": 2
+ },
+ "dom_roche": {
+  "external": 1
+ },
+ "dvmphd2be": {
+  "external": 1
+ },
+ "dysonsphere": {
+  "cspc": 3
+ },
+ "euraxess_na": {
+  "cspc": 5
+ },
+ "eustartup_comp": {
+  "external": 1
+ },
+ "fiorellz": {
+  "cspc": 11
+ },
+ "frogheart": {
+  "cspc": 8
+ },
+ "glyconet_nce": {
+  "cspc": 1
+ },
+ "grantsfacilitat": {
+  "cspc": 3
+ },
+ "hwingo": {
+  "cspc": 1
+ },
+ "iprofessorsproj": {
+  "cspc": 1
+ },
+ "imichelr": {
+  "cspc": 1
+ },
+ "indigenous_sts": {
+  "cspc": 1
+ },
+ "ineelbot": {
+  "cspc": 1
+ },
+ "innovativemeds": {
+  "cspc": 2
+ },
+ "insscide_eu": {
+  "external": 1
+ },
+ "istyleplanet": {
+  "cspc": 1
+ },
+ "jackie_dawson": {
+  "cspc": 1
+ },
+ "jennyeileens": {
+  "cspc": 1
+ },
+ "katieinbrief": {
+  "cspc": 1
+ },
+ "kesmorton": {
+  "cspc": 1
+ },
+ "kimberlyofgrace": {
+  "cspc": 1
+ },
+ "km_can": {
+  "cspc": 1
+ },
+ "lacrnad": {
+  "cspc": 1
+ },
+ "laschuk_": {
+  "cspc": 1
+ },
+ "lauelibre1": {
+  "cspc": 1
+ },
+ "laurapelletierb": {
+  "external": 1
+ },
+ "leilanbamba": {
+  "cspc": 1
+ },
+ "lightifyco1": {
+  "cspc": 1
+ },
+ "lindsaydoucet": {
+  "cspc": 1
+ },
+ "linfairuw": {
+  "cspc": 1
+ },
+ "lstirchak": {
+  "cspc": 1
+ },
+ "lwhitcart": {
+  "external": 1
+ },
+ "makepossible_ca": {
+  "cspc": 1,
+  "external": 5
+ },
+ "megankmahoney": {
+  "cspc": 1
+ },
+ "mslapointe": {
+  "cspc": 2
+ },
+ "nanwarner": {
+  "external": 1
+ },
+ "natou50": {
+  "cspc": 2
+ },
+ "negrita73bn": {
+  "external": 1
+ },
+ "ontariogenomics": {
+  "cspc": 1
+ },
+ "rcdezordi": {
+  "external": 1
+ },
+ "reid_nancy": {
+  "external": 1
+ },
+ "researchuoft": {
+  "cspc": 7
+ },
+ "right_hook": {
+  "cspc": 6
+ },
+ "rivrchik": {
+  "cspc": 1
+ },
+ "salexander_11": {
+  "cspc": 2
+ },
+ "sanjaykharche": {
+  "cspc": 1
+ },
+ "scienceatlantic": {
+  "cspc": 1
+ },
+ "scilib": {
+  "cspc": 1
+ },
+ "scilitweek": {
+  "cspc": 1
+ },
+ "sectest9": {
+  "cspc": 1
+ },
+ "sierraclark2": {
+  "cspc": 1
+ },
+ "simplewords000": {
+  "cspc": 1
+ },
+ "smartestkitchen": {
+  "cspc": 1
+ },
+ "soledad_qv": {
+  "cspc": 1
+ },
+ "suartce": {
+  "cspc": 1,
+  "external": 1
+ },
+ "sudipsparikh": {
+  "cspc": 1
+ },
+ "sunflower40000": {
+  "external": 1
+ },
+ "symbiosisca": {
+  "external": 1
+ },
+ "tgruos": {
+  "cspc": 1
+ },
+ "theclasssociety": {
+  "external": 1
+ },
+ "this_is_farah": {
+  "cspc": 1
+ },
+ "trushar_7": {
+  "cspc": 16,
+  "external": 1
+ },
+ "uottawatechlaw": {
+  "external": 1
+ },
+ "ucalgarychi": {
+  "external": 1
+ },
+ "viralvideovlogs": {
+  "cspc": 1
+ },
+ "vivmn": {
+  "cspc": 1
+ },
+ "vote_no_body": {
+  "cspc": 5
+ },
+ "watercomm": {
+  "cspc": 1
+ },
+ "westernubio": {
+  "cspc": 3
+ },
+ "womenwarriorsab": {
+  "cspc": 1
+ },
+ "xineleclerc": {
+  "cspc": 1
+ },
+ "youthclimateact": {
+  "cspc": 2
+ },
+ "yst4sci": {
+  "external": 1
+ },
+ "zsi_fe": {
+  "external": 1
+ },
+ "toxlara": {
+  "external": 1
+ },
+ "innovationnav": {
+  "external": 1
+ },
+ "naomi_couto": {
+  "external": 1
+ },
+ "cappa_acpap": {
+  "external": 1
+ },
+ "noronhapromote": {
+  "external": 1
+ },
+ "comsciconqc": {
+  "cspc": 1
+ },
+ "nicolegrobert": {
+  "external": 1
+ },
+ "sciensingh": {
+  "external": 1
+ },
+ "alexiaostrolenk": {
+  "external": 1
+ },
+ "christelbinnie": {
+  "external": 1
+ },
+ "telferresearch": {
+  "cspc": 1,
+  "external": 1
+ },
+ "agewell_nce": {
+  "external": 1
+ },
+ "uottawa_seph": {
+  "cspc": 1,
+  "external": 1
+ },
+ "girardmarie_eve": {
+  "cspc": 1,
+  "external": 1
+ },
+ "gailushka": {
+  "external": 1
+ }
+}
