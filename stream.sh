@@ -1,9 +1,11 @@
 #!/bin/bash
-file=tweet_activity_metrics_sciencepolicy_20201002_20201009_en.csv
+file=daily_tweet_activity_metrics_sciencepolicy_20201016_20201023_en.csv 
 
 echo "hashtag"
 python3 code/hashtag.py
-#awk '{a[i++]=$0} END {for (j=i-1; j>=0;) print a[j--] }' stream.out | sed 's/\//,/g' | sed 's/:/,/g' | sed 's/ /,/g' > streamed.out
+awk '{a[i++]=$0} END {for (j=i-1; j>=0;) print a[j--] }' stream.out | sed 's/\//,/g' | sed 's/:/,/g' | sed 's/ /,/g' > streamed.out
+python3 code/cleaner.py hashtag streamed.out
+python3 code/cleaner.py activity $file
 
 #echo "promotion"
 #python3 code/promotion.py
@@ -13,14 +15,11 @@ python3 code/hashtag.py
 #python3 code/sciparl.py
 #awk '{a[i++]=$0} END {for (j=i-1; j>=0;) print a[j--] }' smpstream.out | sed 's/\//,/g' | sed     's/:/,/g' | sed 's/ /,/g' | sed "s/(/'(/g" | sed "s/,)/)/g" | sed "s/)/)'/g" >> data/sciparl.csv
 
-#python3 code/cleaner.py $file
-#awk '{a[i++]=$0} END {for (j=i-1; j>=0;) print a[j--] }' activity.out >> data/activity.csv
-
 #echo "covid"
 #python3 code/covid.py
 #awk '{a[i++]=$0} END {for (j=i-1; j>=0;) print a[j--] }' covidstream.out | sed 's/\//,/g' | sed 's/:/,/g' | sed 's/ /,/g' >> data/covid.csv
 
-#rm -fv *.out $file
+rm -fv *.out $file
 #python3 code/plot_hashtag.py
 #python3 code/plot_activity.py
 #python3 code/mentions.py
