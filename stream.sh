@@ -1,11 +1,11 @@
 #!/bin/bash
-file=daily_tweet_activity_metrics_sciencepolicy_20201023_20201106_en.csv 
+file=daily_tweet_activity_metrics_sciencepolicy_20201106_20201113_en.csv 
 
 echo "hashtag"
 python3 code/hashtag.py
 awk '{a[i++]=$0} END {for (j=i-1; j>=0;) print a[j--] }' stream.out | sed 's/\//,/g' | sed 's/:/,/g' | sed 's/ /,/g' > streamed.out
 python3 code/cleaner.py hashtag streamed.out
-python3 code/cleaner.py activity $file
+#python3 code/cleaner.py activity $file
 
 #echo "promotion"
 #python3 code/promotion.py
