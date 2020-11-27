@@ -244,7 +244,7 @@
  },
  "johnstonpari": {
   "cspc": 2,
-  "external": 11
+  "external": 12
  },
  "kravisrinivas": {
   "external": 1
@@ -321,7 +321,7 @@
   "external": 2
  },
  "nivainc": {
-  "cspc": 3,
+  "cspc": 4,
   "external": 2
  },
  "nrc_cnrc": {
@@ -438,7 +438,7 @@
  },
  "toscipolicynet": {
   "cspc": 4,
-  "external": 25
+  "external": 26
  },
  "tammyjclifford": {
   "cspc": 1,
@@ -752,7 +752,7 @@
   "cspc": 1
  },
  "simplewords000": {
-  "cspc": 1,
+  "cspc": 2,
   "external": 1
  },
  "smartestkitchen": {
@@ -1072,7 +1072,7 @@
  },
  "hamiltonjohnd": {
   "cspc": 1,
-  "external": 2
+  "external": 3
  },
  "5msc2": {
   "cspc": 1
@@ -1437,7 +1437,7 @@
  },
  "anhkhoitrinh": {
   "cspc": 2,
-  "external": 8
+  "external": 10
  },
  "ingeniumfr": {
   "cspc": 1
@@ -1646,7 +1646,7 @@
  },
  "sivanibaskaran": {
   "cspc": 1,
-  "external": 3
+  "external": 4
  },
  "scienceisglobal": {
   "cspc": 1,
@@ -1856,7 +1856,7 @@
  },
  "cattullyfoh": {
   "cspc": 1,
-  "external": 3
+  "external": 4
  },
  "laoxitocina": {
   "cspc": 1
@@ -2015,7 +2015,7 @@
  },
  "yosoyciencia": {
   "cspc": 1,
-  "external": 18
+  "external": 19
  },
  "ccralliance": {
   "external": 1
@@ -2115,7 +2115,7 @@
  },
  "momo_ueda": {
   "cspc": 1,
-  "external": 1
+  "external": 2
  },
  "limnology_ca": {
   "cspc": 1
@@ -2500,7 +2500,7 @@
  },
  "tanguaygen": {
   "cspc": 1,
-  "external": 2
+  "external": 3
  },
  "ourfuturebot": {
   "cspc": 1
@@ -2513,7 +2513,7 @@
   "cspc": 1
  },
  "caulfieldtim": {
-  "cspc": 1,
+  "cspc": 2,
   "external": 5
  },
  "feddersenmeliss": {
@@ -2613,7 +2613,7 @@
   "cspc": 1
  },
  "zsinnovation": {
-  "external": 1
+  "external": 2
  },
  "cercocean": {
   "cspc": 1
@@ -2784,6 +2784,39 @@
   "cspc": 1
  },
  "pujciencias": {
+  "cspc": 1
+ },
+ "richardaloftus1": {
+  "external": 1
+ },
+ "koolwebsitescom": {
+  "external": 1
+ },
+ "raymondsbrain": {
+  "cspc": 1
+ },
+ "hernie1983": {
+  "cspc": 1
+ },
+ "djillk1": {
+  "cspc": 1
+ },
+ "mdebbabi": {
+  "external": 1
+ },
+ "artificialbra1n": {
+  "cspc": 1
+ },
+ "blackstembot": {
+  "cspc": 1
+ },
+ "bixtra": {
+  "external": 1
+ },
+ "bit_alexis": {
+  "cspc": 1
+ },
+ "415lifer": {
   "cspc": 1
  }
 }
